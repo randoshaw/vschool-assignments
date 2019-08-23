@@ -1,0 +1,42 @@
+*{
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-size: 0px;
+}
+
+.container {
+    width: 755px;
+    height: 125px;
+    margin-top: 250px;
+}
+
+.box {
+    width:100%;
+    height: 125px;
+    border: 5px solid white;
+    display: inline-block;
+}
+
+.one {
+    background: #F5C6D6;
+}
+
+.two, .three, .four, .five {
+    background: #EE2E84;
+    width: 25%;
+}
+
+.six, .seven {
+    background: #85CFD8;
+    width: 50%;
+}
+
+.eight {
+    background: #8DC63F;
+    width: 75%;
+}
+
+.nine {
+    background: #E76E34;
+    width:25%
+}
