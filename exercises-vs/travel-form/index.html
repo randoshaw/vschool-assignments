@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Travel Form</title>
+</head>
+<body>
+    
+    <form name="passenger">
+        <h1>Travel With Us</h1>
+        Name & Age:
+        <br><br>
+            <input type="text" placeholder="First Name" name ="FirstName"required>
+            <input type="text" placeholder="Last Name" name ="LastName"required>
+            <input type="number" placeholder="Age" name="Age"required>
+            <br><hr>
+
+            Gender:
+            <br><br>
+            Male<input type="radio" name="gender" value="male"><br>
+            Female<input type="radio" name="gender" value="female"><br>
+            Other<input type="radio" name="gender" value="Other">
+            <br><hr>
+
+            Destination:
+            <select name="destinations" id="Destinations"required>
+                <option value=""></option>
+                <option value="Texas">Texas</option>
+                <option value="Montana">Montana</option>
+                <option value="California">California</option>
+                <option value="New York">New York</option>
+                <option value="Washington">Washington</option>
+                <option value="Oregon">Oregon</option>
+            </select>
+            <br><hr>
+
+            Dietary Restrictions:
+            <br>
+            Vegetarian <input type="checkbox" name="diet" value="Vegetarian">
+            Kosher <input type="checkbox" name="diet" value="Kosher">
+            Peanut Allergy <input type="checkbox" name="diet" value="Peanut Allergy">
+            <br><hr>
+
+            <button>Submit</button>
+
+</body>
+<script src="main.js"></script>
+</html>

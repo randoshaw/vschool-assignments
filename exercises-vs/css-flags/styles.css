@@ -1,0 +1,359 @@
+.container {
+    width: 800px;
+    margin: 0 auto;
+    background-color: lightgrey;
+    padding-left: 50px;
+}
+
+h1{
+    text-align: center;
+}
+
+.rectangle-flag {
+    border: 2px solid aqua;
+    width: 580px;
+    height: 387px;
+    position: relative;
+}
+
+/* France */
+
+.france-blue {
+    background-color: #002496;
+    width: 33%;
+    height: 100%;
+    position: absolute;
+}
+
+.france-white {
+    background-color: white;
+    width: 34%;
+    height: 100%;
+    position: absolute;
+    right: 33%;
+}
+
+.france-red {
+    background-color: #ED2839;
+    height: 100%;
+}
+
+/* Germany */
+
+.germany-black {
+    background-color: #000000;
+    height: 33.33%;
+    /* width: 100%; */
+}
+
+.germany-red {
+    background-color: #DE0000;
+    height: 33.33%;
+    /* width: 100%; */
+}
+
+.germany-yellow {
+    background-color: #ffCE00;
+    height: 33.33%;
+    /* width: 100%; */
+}
+
+ /* Madagascar */
+.madagascar-white {
+    background-color: white;
+    width: 33%;
+    height: 100%;
+    position: absolute;
+}
+
+.madagascar-red {
+    background-color: #FC3E32;
+    width: 67%;
+    height: 50%;
+    position: absolute;
+    left: 33%;
+}
+
+.madagascar-green {
+    background-color: #017E39;
+    position: absolute;
+    width: 67%;
+    height: 50%;
+    left: 33%;
+    top: 50%;
+}
+
+ /* Switzerland */
+
+.square-flag {
+    width: 580px;
+    height: 580px;
+    border: 2px solid aqua;
+}
+
+.switz-red {
+    position: relative;
+    background-color: #FE0000;
+    width: 100%;
+    height: 100%;
+}
+
+.switz-white {
+    background-color: white;
+    position: relative;
+}
+
+.switz-cross-vertical {
+    height: 68%;
+    width: 20%;
+    top: 17%;
+    left: 40%;
+    position: relative;
+}
+.switz-cross-horizontal {
+    height: 20%;
+    width: 61%;
+    top: -26%;
+    left: 19%;
+    position: relative;
+}
+
+/* Sweeden */
+
+.sweed-blue {
+    background-color: #006AA6;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.sweed-yellow {
+    background-color: #ffCE00;
+    position: absolute;
+}
+
+.sweed-cross-vertical {
+    width: 12%;
+    height: 100%;
+    bottom: 0;
+    left: 30%;
+}
+
+.sweed-cross-horizontal {
+    width: 100%;
+    height: 20%;
+    top: 40%;
+}
+
+/* Gambia */
+
+.gambia-white {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.gambia-red {
+    background-color: #CE1126;
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    top: 0;
+}
+
+.gambia-blue {
+    background-color: #0C1C8C;
+    position: absolute;
+    width: 100%;
+    height: 29%;
+    bottom: 35%;
+}
+
+.gambia-green {
+    background-color: #3A7728;
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    bottom: 0px
+}
+
+/* Tonga */
+
+.tonga-red {
+    background-color: #C10000;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.tonga-white {
+    background-color: white;
+    position: absolute;
+    width: 40%;
+    height: 50%;
+    top: 0;
+}
+
+.tonga-cross-vertical {
+    position: absolute;
+    background-color: #C10000;
+    width: 8%;
+    height: 30%;
+    top: 10%;
+    left: 15%;
+}
+
+.tonga-cross-horizontal {
+    background-color: #C10000;
+    width:22%;
+    height: 10%;
+    position: absolute;
+    top: 20%;
+    left: 8%;
+}
+
+/* Japan */
+.japan-white {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.japan-red {
+    background-color: #BB002D;
+    position: absolute;
+    height: 50%;
+    width: 30%;
+    top: 25%;
+    left: 35%;
+    border-radius: 50%;
+}
+
+/* Greece */
+.greece-blue {
+    background-color: #0F5DAF;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.greece-white {
+    background-color: white;
+    position: absolute;
+}
+
+.greece-cross-horizontal {
+    width: 33%;
+    height: 11.1%;
+    top: 20%;
+}
+
+.greece-cross-vertical {
+    width: 8%;
+    height: 54%;
+    top: 0%;
+    left: 12.5%;
+}
+
+.greece-first-line {
+    width: 67.1%;
+    height: 11.1%;
+    top: 8.7%;
+    left: 33%;
+}
+
+.greece-second-line {
+    width: 67.1%;
+    height: 11.1%;
+    top: 31.4%;
+    left: 33%;
+}
+
+.greece-third-line {
+    width: 100%;
+    height: 11.1%;
+    top: 54%;
+}
+
+.greece-fourth-line {
+    width: 100%;
+    height: 11.1%;
+    top: 77%;
+}
+
+/* Niger */
+
+.niger-orange {
+    background-color: #E05206;
+    height: 33%;
+    width: 100%;
+    position: absolute;
+}
+
+.niger-white {
+    background-color: white;
+    height: 33%;
+    width: 100%;
+    top: 33%;
+    position: absolute;
+}
+
+.niger-green {
+background-color: #0eaf2b;
+height: 33%;
+width: 100%;
+position: absolute;
+top: 67%;
+}
+
+.niger-circle {
+    background-color: #E05206;
+    position: absolute;
+    height: 30%;
+    width: 20%;
+    border-radius: 50%;
+    top: 35%;
+    left: 40%;
+}
+
+/* Maldives */
+.maldives-red {
+    background-color: #D30F33;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.maldives-green {
+    background-color: #017E3A;
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    left: 20%;
+    top: 20%;
+}
+
+.maldives-white-circle {
+    position: absolute;
+    background-color: white;
+    height: 44%;
+    width: 30%;
+    border-radius: 50%;
+    top: 28%;
+    left: 40%;
+}
+
+.maldives-green-circle {
+    background-color: #017E3A;
+    position: absolute;
+    height: 44%;
+    width: 30%;
+    border-radius: 50%;
+    top: 28%;
+    left: 45%;
+}
+
+
+

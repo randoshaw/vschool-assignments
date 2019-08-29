@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    height: 450px;
+    width: 400px;
+    margin: 15% auto;
+    border: 2px dashed lightslategray;
+    padding: 15px;
+    border-radius: 2%;
+    display: flex;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    text-align: center;
+    background: rgb(139, 171, 202);
+    padding: 10px;
+}
+
+button {
+    font-size: 18px;
+    border-radius: 20%;
+    border: 1px solid slategray;
+}
