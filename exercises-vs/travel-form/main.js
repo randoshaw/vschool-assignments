@@ -1,4 +1,5 @@
-form = document.passenger
+const form = document.passenger
+// const form.document["passenger"]
 
 form.addEventListener("submit", function(e){
     e.preventDefault()
