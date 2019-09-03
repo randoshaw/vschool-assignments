@@ -1,7 +1,7 @@
 const readline = require("readline-sync")
 
-const num1 = readline.question("Please enter your first number: \n");
-const num2 = readline.question("Please enter your second number: \n");
+const num1 = Number(readline.question("Please enter your first number: \n"));
+const num2 = Number(readline.question("Please enter your second number: \n"));
 
 console.log(`The numbers selected are ${num1} and ${num2} \n \n`);
 
