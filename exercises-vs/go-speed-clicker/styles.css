@@ -1,0 +1,12 @@
+/* .container {
+    display: flex; 
+    align-self: center;
+    width: 200px;
+    height: 200px;
+    border: 2px dashed gray;
+} */
+
+h1#counter {
+  display: flex;
+  justify-content: center;
+}
