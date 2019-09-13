@@ -32,3 +32,58 @@ loadPage = (arr) => {
         largeDiv.appendChild(todoContain)
     }
 }
+
+
+//GOAL
+//Interact with axios cdn to add, edit, put new things on, and delete said content.
+
+//GET - be able to access content
+
+//POST - be able to post inputed content 
+
+//PUT - be able to CHANGE content
+
+//DELETE - destroy content
+
+let largeDiv = document.getElementById("largeDiv")
+
+const getInfo = () => {
+    axios.get('https://api.vschool.io/randon/todo/')
+    .then(response => {
+        console.log(response.data)
+        const todo = response.data
+        displayDom(todo)
+    })
+    .catch(error =>{
+        console.log(error)
+    })
+}
+getInfo()
+
+//Display data to the DOM
+
+const displayDom = (todo) => {
+    for (let i = 0; i < todo.length; i++) {
+    //create elements
+    const container = document.createElement("div")
+    const h2 = document.createElement("h2")
+    const description = document.createElement("p")
+    const price = document.createElement("p")
+    const img = document.createElement("img")
+    //edit elements (.title, description, etc. from data in axios)
+    h2.textContent = todo[i].title
+    description.textContent = todo[i].description
+    price.textContent = `$${todo[i].price}`
+    img.src = todo[i].imgUrl
+
+    if(todo.completed) {
+        h2.classList.add("completed")
+    }
+    //append elements to the DOM
+    container.appendChild(h2)
+    container.appendChild(description)
+    container.appendChild(price)
+    container.appendChild(img)
+    largeDiv.appendChild(container)
+    }
+}
