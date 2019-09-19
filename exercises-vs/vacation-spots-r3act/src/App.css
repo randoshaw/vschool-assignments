@@ -1,0 +1,14 @@
+body{
+  background-color: dodgerblue;
+}
+
+.header {
+  text-align: center;
+  background-color: lightslategray;
+}
+section {
+  border: 1px dashed #ccc;
+  margin: 15px auto;
+  width: 450px;
+  text-align: center;
+}

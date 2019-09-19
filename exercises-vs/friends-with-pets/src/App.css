@@ -1,0 +1,20 @@
+body {
+  background: dodgerblue;
+}
+
+main {
+border: 2px dashed #ccc;
+padding: 20px;
+margin: 15px;
+width: 50%;
+text-align: center;
+margin: auto;
+background-color: #f4f4f4;
+}
+
+section {
+  background-color: lightsalmon;
+  border-radius: 10%;
+  border: 1px dashed #ccc;
+  margin: 10px;
+}
