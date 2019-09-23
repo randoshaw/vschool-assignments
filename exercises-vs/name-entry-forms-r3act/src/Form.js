@@ -22,7 +22,7 @@ class Form extends Component {
         event.preventDefault()
 
         const newPerson = {
-            firstName: this.state.firstName, 
+            firstName: this.state.firstName,
             lastName: this.state.lastName, 
             age: this.state.age
         }
