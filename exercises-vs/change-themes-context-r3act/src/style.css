@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+.nav-light, .footer-light {
+    background: #ccc;
+    color: darkgoldenrod;
+}
+
+.nav-dark, .footer-dark {
+    background: darkcyan;
+    color: whitesmoke;
+}
+
+.main-dark {
+    background: darkgray;
+    color: lightsalmon;
+}
+
+.main-light {
+    background: lightcyan;
+    color: darkred;
+}
+
+nav, footer {
+    /* height: 15vh; */
+    border: 2px  solid black;
+    font-size: 25px;
+    text-align: center;
+    
+}
+
+nav {
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 10px;
+}
+
+main {
+    height: 100vh;
+    padding-top: 20%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 85px;
+}
+
+button {
+    display: block;
+    margin: auto;
+    font-size: 50px;
+    margin-top: 75px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+}
