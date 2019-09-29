@@ -1,0 +1,144 @@
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.App {
+    border: 2px solid rgb(81, 81, 249);
+    width: 100vw;
+}
+
+.header {
+    border: 2px solid purple;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    border: 1px solid darkcyan;
+}
+
+a {
+    text-decoration: none;
+    color: darkgray;
+}
+
+.find-city {
+    display: flex;
+    justify-content: center;
+} */
+
+
+/* Computer */
+/* @media screen and (min-width: 800px) {
+    .App {
+        width: 800px;
+    }
+
+    .navbar { 
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .find-results {
+        width: 100px;
+    }
+} */
+
+
+/*  */
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+body{
+    display: flex;
+    justify-content: center;
+}
+.App {
+    border: 1px solid green;
+    width: 100vw;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    border: 1px solid pink;
+}
+.navbar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid red;
+    font-size: 140%;
+
+}
+.navbar > a {
+    background-color: #eee;
+    padding: 30px;
+    width: 100vw;
+    text-align: center;
+    border: 1px solid yellowgreen;
+
+}
+.navbar > a:hover {
+    background-color: #ddd;
+}
+.find-city-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.find-city-submit {
+    
+        background-color: #eee;
+        padding: 30px;
+        /* width: 100vw; */
+        text-align: center;
+        border: 1px solid yellowgreen;
+        cursor: pointer;
+}
+.find-city-submit:hover {
+    background-color: #ddd;
+}
+
+input, button {
+    padding: 20px;
+    font-size: 140%;
+    width: 100%;
+}
+
+/* LAPTOP */
+@media screen and (min-width: 800px) {
+    .App {
+        width: 800px;
+    }
+    .navbar {
+        flex-direction: row;
+        justify-content: space-evenly;
+        font-size: 110%;
+    }
+    .find-city-form{
+        flex-direction: row;
+    }
+    .find-city-form > button{
+        width: 200px;
+        margin: auto;
+    }
+    input, button {
+        font-size: 110%;
+    }
+  }
+
