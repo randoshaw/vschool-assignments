@@ -8,7 +8,7 @@ const mappedDays = (props) => props.days.map((day,id) => <div key ={id}>
 
     return (
 
-    <div>
+    <div className='weekly-container'>
         {props.state ? <h2>Weekly forecast for {props.city} {props.state}</h2> : <h2> </h2>  }
         
         {mappedDays(props.weeklyData)}

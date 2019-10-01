@@ -48,6 +48,7 @@ extractData = (data) => {
     summary: data.daily.summary,
     days: data.daily.data
   }
+  console.log(weeklyData.days)
 
   this.setState({dailyData,weeklyData})
 }
@@ -72,9 +73,9 @@ getWeather = ({lat, lng}) => {
       this.getWeather(loc.latLng))
   }
 
-  saveToFav = () => {
+  saveToFav = (fav) => {
 
-    
+    // (!this.state.favs.some(fav.latLng === ) ? 
 
     this.setState(prev => ({
       favs: [...prev.favs, {
@@ -83,7 +84,7 @@ getWeather = ({lat, lng}) => {
         latLng: prev.latLng,
       }]
     }))
-   
+    // : null)
   }
 
   // Longer method
@@ -105,9 +106,11 @@ getWeather = ({lat, lng}) => {
       <Navbar />
       <Switch>
         <Route exact path='/' render = { 
-            (props) => <Daily {...props} 
+            (props) => <Daily
+            
                 dailyData = { this.state.dailyData } 
                 saveToFav = { this.saveToFav }
+                myCity={this.state.city}
                 /> } />
         <Route path='/weekly' render = { 
             (props) => <Weekly {...props} 

@@ -2,14 +2,14 @@ import React from 'react'
 
 const Favorites = (props) => {
 
-    const mappedFavs = (props) => props.map((loc,id) => <div key={id}>
-        <div> {loc.city} {loc.state}</div>
-    </div>)
+    const mappedFavs = (props) => props.map((loc,id) => <li key={id}>
+       {loc.city} {loc.state}
+    </li>)
 
     return (
-        <div>
-            Favorites
-            {mappedFavs(props.favs)}
+        <div className='favorites-container'>
+            <h2>Favorites</h2>
+            <ul>{mappedFavs(props.favs)}</ul>
         </div>
     )
 }
