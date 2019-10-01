@@ -1,114 +1,80 @@
-/* * {
-    box-sizing: border-box;
-    margin: 0;
-}
-
-body{
-    display: flex;
-    justify-content: center;
-}
-
-.App {
-    border: 2px solid rgb(81, 81, 249);
-    width: 100vw;
-}
-
-.header {
-    border: 2px solid purple;
-    display: flex;
-    justify-content: center;
-}
-
-.navbar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    border: 1px solid darkcyan;
-}
-
-a {
-    text-decoration: none;
-    color: darkgray;
-}
-
-.find-city {
-    display: flex;
-    justify-content: center;
-} */
-
-
-/* Computer */
-/* @media screen and (min-width: 800px) {
-    .App {
-        width: 800px;
-    }
-
-    .navbar { 
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
-
-    .find-results {
-        width: 100px;
-    }
-} */
-
-
-/*  */
-
 *{
     box-sizing: border-box;
     margin: 0;
 }
+
 a {
     text-decoration: none;
+    font-size: 25px;
+
 }
+
 body{
     display: flex;
     justify-content: center;
+    background: gray;
 }
+
 .App {
-    border: 1px solid green;
-    width: 100vw;
+    border: 3px ridge rgb(0, 32, 139);
+    box-shadow:20px 20px 50px 15px grey;
+    border-radius: 20px;
+    width: 80vw;
+    min-height: 90vh;
+    margin-top: 50px;
+    padding: 20px;
+    background: linear-gradient(to top, #6600cc 0%, #00ccff 100%);
+    position: absoulute;
 }
 .header{
     display: flex;
     justify-content: center;
-    border: 1px solid pink;
+    /* border: 1px solid pink; */
+    /* padding: 20px; */
+    margin-bottom: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial;
+    font-size: 50px;
 }
 .navbar{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     font-size: 140%;
-
 }
+
 .navbar > a {
     background-color: #eee;
     padding: 30px;
-    width: 100vw;
+    width: 25vw;
     text-align: center;
-    border: 1px solid yellowgreen;
-
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial;
+    box-shadow: 20px 20px 50px 10px rgb(211, 177, 224) inset;
+     
 }
+
 .navbar > a:hover {
     background-color: #ddd;
 }
+
 .find-city-form {
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-top: 35px;
 }
+
 .find-city-submit {
-    
         background-color: #eee;
         padding: 30px;
         /* width: 100vw; */
         text-align: center;
         border: 1px solid yellowgreen;
         cursor: pointer;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial;
+        box-shadow: 20px 20px 50px 10px rgb(185, 67, 231) inset;
 }
 .find-city-submit:hover {
     background-color: #ddd;
@@ -118,6 +84,31 @@ input, button {
     padding: 20px;
     font-size: 140%;
     width: 100%;
+}
+
+.daily-page {
+    min-height: 10vh;
+}
+
+.find-results {
+    /* margin: 60px; */
+    max-height: 30vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    /* padding: 20px; */
+    margin-bottom: 20px;
+    border-bottom: 1px solid gray;
+}
+
+.find-results > button {
+    margin: 8px;
+    border-radius: 5px;
+    /* width: 400px; */
+}
+
+.weekly {
+    display: flex;
+    flex-direction: column;
 }
 
 /* LAPTOP */
@@ -130,6 +121,7 @@ input, button {
         justify-content: space-evenly;
         font-size: 110%;
     }
+
     .find-city-form{
         flex-direction: row;
     }
@@ -140,5 +132,5 @@ input, button {
     input, button {
         font-size: 110%;
     }
-  }
+}
 

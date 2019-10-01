@@ -6,7 +6,7 @@ const Navbar = (props) => {
         <div className='navbar'>
             <Link to='/weekly'>Weekly Forecast</Link>
             <Link to='/'>Daily Forecast</Link>
-            <Link to='/favs'>Favorite Cities</Link>
+            <Link to='/favs'>List of Favorites</Link>
         </div>
     )
 }

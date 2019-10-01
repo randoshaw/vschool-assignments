@@ -1,68 +1,3 @@
-// // import React, { Component} from 'react'
-// // class FindCity extends Component {
-
-// import React from 'react'
-// import axios from 'axios'
-// import { mapquest } from './.apikeys.js'
-
-// class FindCity extends React.Component {
-//     constructor(props) {
-//         super(props)
-//         this.state = { 
-//             result: []
-//         }
-//     }
-    
-//     handleChange = (event) => {
-//         this.setState({city: event.target.value})
-//     }
-
-//     handleSubmit = (e) => {
-//         e.preventDefault()
-//         axios.get(`http://www.mapquestapi.com/geocoding/v1/address?key=${mapquest}&location=${this.state.city}`)
-//         .then(res=>{
-//             console.log(res)
-//         })
-//         .catch(err =>{
-//             console.log(err)
-//         })
-        
-//     }
-
-
-//     // mappedResults = (props) => {
-//     //     return this.state.results.map(city =><li>{city}</li>)
-//     // }
-
-
-//     render() {
-//         // console.log(mapquest)
-//         const cityItem = (city) => {
-//             return (
-//                 <li>{city}</li>
-//             )
-//         }
-//         const mappedResults = (props) => props.map(cityItem)
-
-//         return (
-//             <div className ='find-city'>
-//             <h2>Find City: &nbsp; </h2>
-//             <form onSubmit = {this.handleSubmit}>
-//                 <input type = "text" name = "city" onChange = {this.handleChange} value = {this.state.city}/>
-//                 <button>Find</button>
-//                 <ul>
-//                     {mappedResults(this.state.result)}
-//                 </ul>
-//             </form>
-//             </div>
-//         )
-//     }
-// }
-
-// export default FindCity;
-
-/////
-
 import React from 'react';
 import axios from 'axios';
 import { mapquest } from './.apikeys.js'
@@ -74,13 +9,13 @@ class FindCity extends React.Component {
             result: [],
             userSelected: {},
             cityInput: ''
-         }
+        }
     }
-    
+    // Every time a user types a letter in the form, onChange event listenter inside the input form, runs the handleChange user defines and updates changes into state so that this.state is equal to what shows up in the form.
     handleChange = (event) => {
         this.setState({cityInput: event.target.value})
     }
-    
+    // When the user submits the form, an axios get request is sent to mapquest api, then returns an updated state list of results as buttons that the user can select
     handleSubmit = (event) => {
         event.preventDefault()
         axios.get(`http://www.mapquestapi.com/geocoding/v1/address?key=${mapquest}&location=${this.state.cityInput}`)
@@ -96,42 +31,24 @@ class FindCity extends React.Component {
                 console.log(err);
             })
     }
-    
+    // When button from displayed list is selected, it will clear the rest of the result buttons. 
     handleSelected = (loc) => {
-        // console.log(loc)
-        this.setState({result: [], userSelected: loc, city: ''})
-        this.props.shareLocation(loc)
+        // console.log('handleSelected',loc)
+        this.setState({result: [], userSelected: loc, cityInput: ''}) // updates FindCity - the child
+        this.props.shareLocation(loc) // updates method in the context it's created in (passed props up to App.js because it is shares the method)
+        this.props.history.push('/')
     }
 
     render() { 
+        // Functions in render is when they return JSX. Can be above and will still work using 'this'
         const cityItem = (loc, index) =>{
+            // console.log(loc)
             return (
                 <button onClick={() => {this.handleSelected(loc)}} key = {index}> {loc.city}, {loc.state}</button>
             )
         }
+        
         const mappedResults = (props) => props.map(cityItem)
-
-        // return (
-        //     <div>
-        //         <div className='find-city'>
-        //             <h2>Find City: &nbsp; </h2>
-        //             <form onSubmit={this.handleSubmit}>
-        //                 <input 
-        //                 type = "text"
-        //                 name = "city" 
-        //                 onChange = {this.handleChange} 
-        //                 value = {this.state.cityInput}
-        //                 placeholder = 'Enter City, State, or Zip Code'
-        //                 autoComplete='off'/>
-        //                 <button>find</button>
-        //             </form>
-        //             </div>
-
-        //             <div className = 'find-results'>
-        //                 {mappedResults(this.state.result)}
-        //             </div>
-        //     </div> 
-        // );
 
         return (
             <div >
@@ -142,7 +59,7 @@ class FindCity extends React.Component {
                             value = {this.state.cityInput} 
                             placeholder = 'Enter City, State, or Zip Code'
                             autoComplete = 'off'/>
-                        <div className='find-city-submit' onClick={()=>console.log('clicked find')}>Find</div>
+                        <div className='find-city-submit' onClick={this.handleSubmit}>Find</div>
                     </form>
             
                 <div className = 'find-results'>
@@ -150,7 +67,7 @@ class FindCity extends React.Component {
                 </div>
             </div>
 
-         );
+        );
     }
 }
  
