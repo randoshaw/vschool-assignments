@@ -7,6 +7,7 @@ const Daily = (props) => {
           {
             
           (props.myCity !== "" ) ?
+  
           
         <div className="daily-page">
           <h2>Daily Forecast for {props.dailyData.city} {props.dailyData.state}</h2>

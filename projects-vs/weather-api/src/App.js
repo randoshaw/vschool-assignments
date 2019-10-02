@@ -8,7 +8,6 @@ import Weekly from './components/Weekly'
 import Favorites from './components/Favorites'
 import FindCity from './components/FindCity'
 import axios from 'axios';
-import { darksky } from './components/.apikeys.js'
 
 
 
@@ -55,8 +54,9 @@ extractData = (data) => {
 
 // Gets the weather info from DarkSky api
 getWeather = ({lat, lng}) => {
+  
   // console.log(lat,lng)
-  axios.get(`${darksky}/${lat},${lng}`)
+  axios.get(`${process.env.REACT_APP_DARKSKY_API_KEY}/${lat},${lng}`)
   .then(res=>{
     console.log(res)
     this.setState({weatherData: res.data}, this.extractData(res.data))
@@ -75,7 +75,7 @@ getWeather = ({lat, lng}) => {
 
   saveToFav = (fav) => {
 
-    // (!this.state.favs.some(fav.latLng === ) ? 
+
 
     this.setState(prev => ({
       favs: [...prev.favs, {

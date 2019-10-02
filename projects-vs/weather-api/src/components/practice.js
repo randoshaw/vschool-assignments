@@ -1,3 +1,5 @@
+// import { get } from "http"
+
 const inputData = [0,1,2,3,4,5,6,7]
 
 const namedDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -5,10 +7,13 @@ const namedDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Frid
 
 
 // inputData.map(showDay)
-const showDay = (getDay()) => {
+const showDay = (index) => {
 
-    return (namedDays[getDay()])
+    return (namedDays[index])
 }
+
+getDay()
+
 
 // const d = new Date();
 // const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
