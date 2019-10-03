@@ -1,7 +1,6 @@
 import React from 'react'
 import Day from './Week/Day'
 
-[1, 2, 3].map(n => n + 1)
 
 const Weekly = props => {
   const mappedDays = props =>
