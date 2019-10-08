@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Favorites = (props) => {
-    console.log('Favorites props', props)
+    // console.log('Favorites props', props)
     const mappedFavs = (props) => props.map((loc,id) => 
     <li key={id}>
        

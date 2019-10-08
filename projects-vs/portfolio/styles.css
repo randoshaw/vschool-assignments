@@ -16,6 +16,20 @@
         flex-wrap: wrap;
     height: 0;
   }
+  .skills ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .skills li {
+    padding: 0 40px;
+    width: 100px;
+  }
 }
 
 @media only screen and (min-width: 600px) {
@@ -112,6 +126,7 @@ nav a {
   font-size: 35px;
   color: whitesmoke;
   text-shadow: 7px 3px 5px black;
+  padding: 0 10px;
 }
 
 nav a:hover {
@@ -138,7 +153,7 @@ section {
       -ms-flex-align: center;
           align-items: center;
   padding-top: 120px;
-  background: #c3c3c3;
+  background: #cbcccc;
 }
 
 h2 {
@@ -148,7 +163,7 @@ h2 {
 }
 
 .projects {
-  background: #e0dfdf;
+  background: #c2c2c2;
 }
 
 .projects h2 {
@@ -185,6 +200,48 @@ h2 {
   border: 1px solid black;
   padding: 30px;
   text-align: center;
+}
+
+.skills {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #343434;
+  padding: 40px;
+  color: whitesmoke;
+}
+
+.skills h2 {
+  text-align: center;
+  font-weight: lighter;
+}
+
+@media only screen and (min-width: 600px) {
+  .skills ul {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[5];
+        grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.skills li {
+  text-align: center;
+  list-style-type: none;
+  font-size: 25px;
+  padding: 0 20px;
+}
+
+.skills img {
+  width: 40vh;
+  margin: auto;
 }
 
 footer {

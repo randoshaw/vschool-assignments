@@ -15,6 +15,25 @@
         flex-wrap: wrap;
         height: 0;
     }
+
+    .skills {
+
+        // flex-wrap: wrap;
+        ul {
+
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            // width: 100vw;
+        }
+        li {
+            // margin: 20px;
+            padding: 0 40px;
+            width: 100px;
+            // color: red;
+        }
+    }
+
 }
 
 @media only screen and (min-width: 600px) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Header from './components/Header'
 import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+// import Footer from './components/Footer'
 import './App.css'
 import { Switch, Route } from 'react-router-dom'
 import Daily from './components/Daily'
@@ -149,7 +149,7 @@ class App extends Component {
             )}
           />
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </div>
       
     )
