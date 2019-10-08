@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css?family=Darker+Grotesque:400,900&display=swap");
+@media only screen and (max-width: 600px) {
+  header {
+    background-repeat: no-repeat;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 20px;
+  }
+  header p {
+    width: 100%;
+    font-size: 30px;
+  }
+  nav {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    height: 0;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  header {
+    padding: 90px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-family: "Darker Grotesque", sans-serif;
+}
+
+p {
+  font-size: 25px;
+  width: 75%;
+}
+
+body {
+  background: #e0dfdf;
+}
+
+header {
+  border: 2px solid black;
+  background-image: url("images/digital-wave.jpeg");
+  background-size: 100% 100%;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+header p {
+  text-align: center;
+  font-weight: 500;
+  font-size: 45px;
+  border-radius: 15px;
+  color: whitesmoke;
+  text-shadow: 7px 3px 5px black;
+  line-height: .7;
+  padding-bottom: 35px;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 95px;
+  border-radius: 15px;
+  color: whitesmoke;
+  text-shadow: 7px 3px 5px black;
+  line-height: .7;
+  padding-bottom: 35px;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background: #5b8d98e8;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 5px 8px gray;
+          box-shadow: 0px 5px 8px gray;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 35px;
+  color: whitesmoke;
+  text-shadow: 7px 3px 5px black;
+}
+
+nav a:hover {
+  color: lightgray;
+}
+
+section {
+  border: 2px solid-black;
+  padding: 60px 0;
+}
+
+.about-me {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 120px;
+  background: #c3c3c3;
+}
+
+h2 {
+  font-size: 35px;
+  font-weight: normal;
+  padding-bottom: 30px;
+}
+
+.projects {
+  background: #e0dfdf;
+}
+
+.projects h2 {
+  text-align: center;
+  font-weight: lighter;
+}
+
+.projects .proj-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.projects .proj-box div {
+  border: 2px solid black;
+  -webkit-box-shadow: 7px 3px 5px darkgray;
+          box-shadow: 7px 3px 5px darkgray;
+  border-radius: 10px;
+  height: 500px;
+  width: 500px;
+  margin: 40px;
+}
+
+.projects .proj-box h3 {
+  font-size: 30px;
+  border-radius: 10px 10px 0px 0px;
+  -webkit-box-shadow: 0px 3px 5px black;
+          box-shadow: 0px 3px 5px black;
+  border: 1px solid black;
+  padding: 30px;
+  text-align: center;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+footer h5 {
+  font-size: 150px;
+}
+
+footer a {
+  color: #046b88;
+}
+/*# sourceMappingURL=styles.css.map */

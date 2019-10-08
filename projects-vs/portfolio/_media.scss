@@ -1,0 +1,24 @@
+@media only screen and (max-width: 600px) {
+    header {
+        background-repeat: no-repeat;
+        height: fit-content;
+        padding: 20px;
+        // background-size: 100% 100%;
+
+        p {
+        width: 100%;
+        font-size: 30px;
+        }
+    }
+
+    nav {
+        flex-wrap: wrap;
+        height: 0;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    header {
+        padding: 90px;
+    }
+}
