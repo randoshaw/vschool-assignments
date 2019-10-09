@@ -45,7 +45,7 @@
           box-sizing: border-box;
 }
 
-html {
+html, button {
   font-family: "Darker Grotesque", sans-serif;
 }
 
@@ -242,6 +242,35 @@ h2 {
 .skills img {
   width: 40vh;
   margin: auto;
+}
+
+.resume {
+  background: #cbcccc;
+}
+
+.resume button {
+  margin: auto;
+  display: block;
+  font-size: 45px;
+  border: 2px solid gray;
+  padding: 10px;
+  border-radius: 10px;
+  background: #f4f4f4;
+}
+
+.resume a {
+  text-decoration: none;
+}
+
+.resume button:hover {
+  color: darkgray;
+}
+
+.contact h2, .contact h3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
 }
 
 footer {

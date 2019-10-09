@@ -12,7 +12,7 @@ $accent-2: rgb(194, 194, 194);
     padding: 0;
     box-sizing: border-box;
 }
-html {
+html, button {
     font-family: "Darker Grotesque", sans-serif;
 }
 
@@ -182,11 +182,34 @@ h2 {
 
 
 // Resume Section
+.resume {
+    background: $accent;
+    button {
+            margin: auto;
+            display: block;
+            font-size: 45px;
+            border: 2px solid gray;
+            padding: 10px;
+            border-radius: 10px;
+            background: #f4f4f4;
+    }
+    a {
+        text-decoration: none;
+    }
+    button:hover {
+        color: darkgray;
+    }
 
+}
 
 // Contact Section
-
-
+.contact {
+    h2, h3{
+        display: flex;
+        text-align: center;
+        // align-items: center;
+    }
+}
 // Footer Section
 
 footer {
