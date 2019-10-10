@@ -56,7 +56,7 @@ class App extends Component {
   getWeather = ({ lat, lng }) => {
     // console.log(lat,lng)
     axios
-      .get(`${process.env.REACT_APP_DARKSKY_API_KEY}/${lat},${lng}`)
+      .get(`https://vschool-cors.herokuapp.com/?url=https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_API_KEY}/${lat},${lng}`)
       .then(res => {
         console.log(res)
         this.setState({ weatherData: res.data }, this.extractData(res.data))

@@ -1,0 +1,11 @@
+The App doesn't work when deployed on Surge. I had to cut out the proxy in order to make it work. 
+
+Proxy Server from package.json:
+"proxy": "https://api.darksky.net/forecast/"
+
+
+V School Request Forwarding/CORS Documentation:
+https://coursework.vschool.io/v-school-request-forwarding-cors-documentation/
+
+https://vschool-cors.herokuapp.com/?url=
+The link above is used in the axios.get request to prevent the CORS error. It's like a proxy server that makes the api request instead of my own browswer making the request - the middleman.
