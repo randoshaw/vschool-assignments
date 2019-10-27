@@ -1,15 +1,20 @@
 import React from 'react'
+import { withBounty } from './BountyProvider'
+import People from './components/People'
+import Form from './components/Form'
 
-class App extends React.Component {
+const App = (props) => {
+    const mappedBounties = props.people.savedData.map(single => <People {...single}
+    key = {single._id} />)
 
-    render() {
-        return (
-            <div>
-                App
-            </div>
-        )
-    }
+    return (
+        <div>
+            <People />
+            {mappedBounties}
+            <Form/>
+        </div>
+    )
 }
 
 
-export default App
+export default withBounty(App)

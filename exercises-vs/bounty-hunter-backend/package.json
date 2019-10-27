@@ -7,11 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "proxy": "http://localhost:7000",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "mongoose": "^5.7.4",
+    "morgan": "^1.9.1",
     "uuid": "^3.3.3"
   }
 }
