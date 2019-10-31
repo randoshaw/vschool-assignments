@@ -1,44 +1,46 @@
-import React, { useContext } from 'react'
-import Auth from './components/Auth.js'
-import Navbar from './components/Navbar.js'
-import PublicPosts from './components/PublicPosts.js'
-import Profile from './components/Profile.js'
-import { Switch, Route, Redirect } from 'react-router-dom'
-import { UserContext } from './context/UserProvider.js'
-import AddPostPage from './components/AddPostPage.js'
-import ProtectedRoute from './shared/ProtectedRoute.js'
+import React from "react";
+import Home from "./components/Home";
+import Header from "./components/Header";
+import CarInfo from "./components/CarInfo";
+import LogEntry from "./components/LogEntry"
+import LoggedSum from "./components/LoggedSum"
+import Navbar from "./components/Navbar"
+import { Switch, Route } from "react-router-dom";
 
+import "./styles.css";
+import "primereact/resources/themes/nova-light/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
 
-function App(){
-    const { token, logout } = useContext(UserContext)
+const App = params => {
     return (
-        <div>
-            { token && <Navbar logout={logout}/> }
+        <>
+         <Header/>
             <Switch>
-                <Route 
-                    exact path="/" 
-                    render={rProps => token ? 
-                                <Redirect to="/public"/> 
-                                : <Auth {...rProps}/> 
-                            }/>
-                <ProtectedRoute 
-                    path="/public"
-                    component={PublicPosts}
-                    redirectTo="/"
-                />
-                <ProtectedRoute 
-                    path="/profile"
-                    component={Profile}
-                    redirectTo="/"
-                />
-                <ProtectedRoute 
-                    path="/addpost"
-                    component={AddPostPage}
-                    redirectTo="/"
-                />
+                <Route path='/car/'>
+                    <Navbar />
+                </Route>
+                <Route path='/'></Route>
             </Switch>
-        </div>
-    )
-}
+            <Switch>
+                <Route path='/car/carInfo/create'>
+                    <CarInfo title="create" />
+                </Route>
+                <Route path='/car/carInfo/edit'>
+                    <CarInfo title="edit" />
+                </Route>
+                <Route path='/car/logentry'>
+                    <LogEntry />
+                </Route>
+                <Route path='/car/loggedsum'> 
+                    <LoggedSum />
+                </Route>
+                <Route exact path='/'>
+                    <Home />
+                </Route>
+            </Switch>
+        </>
+    );
+};
 
-export default App
+export default App;

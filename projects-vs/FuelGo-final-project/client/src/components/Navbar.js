@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
-function Navbar(props){
+// Update Car Info, New Log, Log Summary, Sign Out
+export default (props) => {
     return (
-        <div>
-            <Link to="/public">Posts</Link>
-            <Link to="/profile">Profile</Link>
-            <Link to="/addpost">New Post</Link>
-            <button onClick={props.logout}>Logout</button>
-        </div>
+        <>
+        <Link to='/car/carInfo/edit'>Update Car Info</Link>
+        <Link to='/car/logEntry'>New Log</Link>
+        <Link to='/car/loggedSum'>Log Summaries</Link>
+
+
+        </>
     )
 }
 
-export default Navbar
