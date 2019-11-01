@@ -27,13 +27,13 @@ const App = params => {
                 <Route
                     path="/carInfo/create"
                     component={rprops =>
-                        CarInfo({ ...rprops, title: "Create" })
+                        CarInfo({ ...rprops, title: "Create", cancelButton: false})
                     }
                 />
 
                 <Route
                     path="/car/carInfo/edit"
-                    component={rprops => CarInfo({ ...rprops, title: "Edit" })}
+                    component={rprops => CarInfo({ ...rprops, title: "Edit", cancelButton: true})}
                 />
                 <Route path="/car/logentry" component={LogEntry} />
                 <Route path="/car/loggedsum" component={LoggedSum} />

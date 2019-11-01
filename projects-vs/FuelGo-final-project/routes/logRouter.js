@@ -34,8 +34,9 @@ logRouter.get("/user", (req, res, next) => {
 logRouter.post("/", (req, res, next) => {
     // Add the user _id to the request body object
     req.body.user = req.user._id;
+    console.log(req.body)
     // Create the new post object
-    const newCarLog = new carLog(req.body);
+    const newCarLog = new CarLog(req.body);
     // Save the new post object
     newCarLog.save((err, savedCarLog) => {
         if (err) {

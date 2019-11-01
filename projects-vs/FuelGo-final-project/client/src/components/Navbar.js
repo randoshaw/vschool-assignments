@@ -35,7 +35,7 @@ export default props => {
             >
                 Log Summaries
             </Link>
-            <Link className={props.location.pathname === "/"} to="/">
+            <Link to="/">
                 Sign Out
             </Link>
         </div>

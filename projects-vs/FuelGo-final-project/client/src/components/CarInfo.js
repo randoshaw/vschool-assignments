@@ -1,69 +1,95 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect, useContext } from "react";
 import { Button } from "primereact/button/";
+import Axios from "axios";
+import { carInfoContext } from "../context/carInfoProvider"
 
-export default (props) => {
+// make a new carinfo post, and save id on signup or if no info exists
+// get carinfo by user
+//      GET '/api/carInfo/user'
+// display carinfo on our form values
+//      then setstate with carinfo
+// on submit, PUT the new updated values to carinfo in db
+//      PUT '/api/carInfo/:id'
 
-    // // non-destructured
-    // const hook = useState({})
-    // const state = hook[0]
-    // const setState = hook[1]
-    // setState({hi:"hi"})
-    // console.log(state)
-    const [state, setState] = useState()
+const authAxios = Axios.create();
+authAxios.interceptors.request.use(config => {
+    const token = localStorage.getItem("token");
+    config.headers.Authorization = `Bearer ${token}`;
+    return config;
+});
 
+const CarInfo = props => {
+    const { carInfo, handleChange } = useContext(carInfoContext)
 
-    const goToLoggedSummary = e => {
-        e.preventDefault()
-       
-        props.history.push("/car/logEntry")
-        } 
     const goBack = e => {
-        e.preventDefault()
-        props.history.goBack()
-    }
+        e.preventDefault();
+        props.history.goBack();
+    };
 
-    const handleChange = (e) => {
-        
-    }
+    
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        console.log(carInfo)
+        authAxios
+            .put(`/api/carInfo/${carInfo.carId}`, carInfo)
+            .then(res => {
+                props.history.push("/car/logEntry")}
+                )
+            .catch(err => console.log(err));
+    };
 
     return (
         <div className="flex-col">
-        <h2>{props.title} Your Car Information</h2>
-        <form  >
-        <input
+            <h2>{props.title} Your Car Information</h2>
+            <form onSubmit={handleSubmit}>
+                <input
                     type="text"
                     name="make"
-                    value=""
+                    value={carInfo.make}
                     placeholder="Make"
                     onChange={handleChange}
                 />
-        <input
+                <input
                     type="text"
                     name="model"
-                    value=""
+                    value={carInfo.model}
                     placeholder="Model"
+                    onChange={handleChange}
                 />
-        <input
+                <input
                     type="Number"
                     name="year"
-                    value=""
+                    value={carInfo.year}
                     placeholder="Year"
+                    onChange={handleChange}
                 />
-        <input
+                <input
                     type="Number"
                     name="odometer"
-                    value=""
+                    value={carInfo.odometer}
                     placeholder="Odometer"
+                    onChange={handleChange}
                 />
-        <input
-                    type="text"
+                <input
+                    type="url"
                     name="imgUrl"
-                    value=""
+                    value={carInfo.imgUrl}
                     placeholder="Upload ImgUrl"
+                    onChange={handleChange}
                 />
-<Button label="Submit" className="p-button-raised" onClick={goToLoggedSummary}/>
-<Button label="Cancel" className="p-button-raised p-button-warning" onClick={goBack}/>
-        </form>
+                <Button label="Submit" className="p-button-raised" />
+                { props.cancelButton
+                    &&
+                    <Button
+                        label="Cancel"
+                        className="p-button-raised p-button-warning"
+                        onClick={goBack}
+                    />
+                }
+            </form>
         </div>
-    )
-}
+    );
+};
+
+export default CarInfo
