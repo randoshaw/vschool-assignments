@@ -1,8 +1,9 @@
 import React from "react";
 const style = {
-    "background-color": "red",
-    "font-size": "75px",
-    "text-align": "center"
+    "backgroundColor": "red",
+    "fontSize": "50px",
+    "textAlign": "center",
+    "marginBottom": "20px"
 };
 
 export default params => {

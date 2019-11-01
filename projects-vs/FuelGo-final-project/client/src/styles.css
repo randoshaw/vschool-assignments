@@ -1,0 +1,45 @@
+body, h1 {
+    margin: 0;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 7px;
+    text-align: center;
+    margin: 10px;
+}
+
+form {
+    width: 75vw;
+    text-align: center;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nav > a {
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 0;
+    text-align: center;
+    width: 80%;
+    padding: 8px;
+}
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.margin {
+    margin: 24px 0;
+}
+
+.nav-active {
+    background-color: lightgrey;
+}

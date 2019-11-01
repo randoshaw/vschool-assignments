@@ -1,4 +1,5 @@
 import React from 'react'
+import {Button} from 'primereact/button'
 
 const carInfo={
     "width":"80vw",
@@ -17,7 +18,7 @@ const loggedCars = {
 
 export default (params) => {
     return (
-        <>
+        <div className="flex-col">
         <div style={carInfo}>
         <h3>Car Information</h3>
         <ul>
@@ -27,6 +28,7 @@ export default (params) => {
         </ul>
         <img src="https://images.unsplash.com/photo-1541443131876-44b03de101c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt='blue car' width="300"/>
         </div>
+
 
         <div style ={totals}>
             <h3>Totals</h3>
@@ -44,7 +46,7 @@ export default (params) => {
                     <li>Gallons: {"10.5"}</li>
                     <li>Odometer: {"123"}</li>
                 </ul>
-                <button>Edit</button>
+                <Button label="Edit" className="p-button-raised p-button-warning" />
             </div>
 
             <div style ={loggedCars}>
@@ -54,7 +56,7 @@ export default (params) => {
                     <li>Gallons: {"10.5"}</li>
                     <li>Odometer: {"123"}</li>
                 </ul>
-                <button>Edit</button>
+                <Button label="Edit" className="p-button-raised p-button-warning" />
             </div>
 
             <div style ={loggedCars}>
@@ -64,8 +66,7 @@ export default (params) => {
                     <li>Gallons: {"10.5"}</li>
                     <li>Odometer: {"123"}</li>
                 </ul>
-                <button>Edit</button>
-            </div>
-        </>
+                <Button label="Edit" className="p-button-raised p-button-warning" />            </div>
+        </div>
     )
 }
