@@ -30,6 +30,10 @@ const carLogSchema = new Schema({
     tankFull: {
         type: Boolean,
         default: false
+    },
+    gallons: {
+        type: Number,
+        required: true
     }
 })
 

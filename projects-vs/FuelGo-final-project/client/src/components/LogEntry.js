@@ -55,13 +55,9 @@ const handleSubmit = e => {
     authAxios.post("/api/carLog", {...state, car: carId})
     .then(res => {
         console.log(res)
+        props.history.push("/car/loggedSum")
     })
 }
-
-const goToLoggedSum = (e) => {
-        e.preventDefault()
-        props.history.push("/car/loggedSum")
-    }
 
     return (
         <div className="flex-col">

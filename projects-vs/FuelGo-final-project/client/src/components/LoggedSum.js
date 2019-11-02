@@ -1,5 +1,9 @@
-import React from 'react'
+import React, {useEffect, useContext, useState} from 'react'
 import {Button} from 'primereact/button'
+import Axios from 'axios'
+import { carInfoContext } from "../context/carInfoProvider"
+import { CLIENT_RENEG_LIMIT } from 'tls'
+
 
 const carInfo={
     "width":"80vw",
@@ -16,17 +20,61 @@ const loggedCars = {
     "border":"1px solid black"
 }
 
+const authAxios = Axios.create();
+authAxios.interceptors.request.use(config => {
+    const token = localStorage.getItem ("token")
+    config.headers.Authorization = `Bearer ${token}`
+    return config;
+})
+
+const MappedLogs = (props) => {
+    return props.logs.map(log=>{
+        let date = new Date(log.created)
+        
+        return (
+            
+            <div style ={loggedCars}>
+            <ul>
+                <li>Date: {date.getMonth()+1} - {date.getDate()} - {date.getFullYear()}</li>
+                <li>Purchase Amount: ${log.price}</li>
+                <li>Gallons: {log.gallons}</li>
+                <li>Odometer: {log.odometer}</li>
+            </ul>
+            <Button label="Edit" className="p-button-raised p-button-warning" />
+        </div>
+        )
+    })
+}
+
+
+// logs.map(log => {
+//     console.log("LOG",log);
+//     return <div key={log.carId}>{log}</div>
+// })
+
+
 export default (params) => {
+    const {carInfo:{make, model, carId, year, imgUrl}} = useContext(carInfoContext)
+
+    const [logs, setLogs] = useState([])
+
+    useEffect(() => {
+        authAxios.get(`/api/carLog/${carId}`).then((res) => {
+            setLogs(res.data)
+            console.log(res.data);
+        })
+    }, [])   
+
     return (
         <div className="flex-col">
         <div style={carInfo}>
         <h3>Car Information</h3>
         <ul>
-            <li>Make: {"honda"}</li>
-            <li>Model: {"accord"}</li>
-            <li>Year: {"1998"}</li>
+            <li>Make: {make}</li>
+            <li>Model: {model}</li>
+            <li>Year: {year}</li>
         </ul>
-        <img src="https://images.unsplash.com/photo-1541443131876-44b03de101c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt='blue car' width="300"/>
+        <img src={imgUrl} alt= {`${make} ${model}`} width="275px"/>
         </div>
 
 
@@ -39,34 +87,10 @@ export default (params) => {
             </ul>
         </div>
 
-        <div style ={loggedCars}>
-                <ul>
-                    <li>Date: {"10/25/19"}</li>
-                    <li>Purchase Amount: {"$35"}</li>
-                    <li>Gallons: {"10.5"}</li>
-                    <li>Odometer: {"123"}</li>
-                </ul>
-                <Button label="Edit" className="p-button-raised p-button-warning" />
-            </div>
 
-            <div style ={loggedCars}>
-                <ul>
-                    <li>Date: {"10/25/19"}</li>
-                    <li>Purchase Amount: {"$35"}</li>
-                    <li>Gallons: {"10.5"}</li>
-                    <li>Odometer: {"123"}</li>
-                </ul>
-                <Button label="Edit" className="p-button-raised p-button-warning" />
-            </div>
+                <MappedLogs logs={logs}/>
 
-            <div style ={loggedCars}>
-                <ul>
-                    <li>Date: {"10/25/19"}</li>
-                    <li>Purchase Amount: {"$35"}</li>
-                    <li>Gallons: {"10.5"}</li>
-                    <li>Odometer: {"123"}</li>
-                </ul>
-                <Button label="Edit" className="p-button-raised p-button-warning" />            </div>
-        </div>
+
+       </div>
     )
 }
