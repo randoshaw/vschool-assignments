@@ -2,7 +2,7 @@ import React, {useEffect, useContext, useState} from 'react'
 import {Button} from 'primereact/button'
 import Axios from 'axios'
 import { carInfoContext } from "../context/carInfoProvider"
-import { CLIENT_RENEG_LIMIT } from 'tls'
+import { logContext } from "../context/logProvider"
 
 
 const carInfo={
@@ -10,7 +10,7 @@ const carInfo={
     "border":"2px solid black"
 }
 
-const totals={
+const totalsStyle={
     "width":"60vw",
     "border":"2px solid black"
 }
@@ -28,43 +28,50 @@ authAxios.interceptors.request.use(config => {
 })
 
 const MappedLogs = (props) => {
-    return props.logs.map(log=>{
+    const { setCarIndex } = useContext(logContext)
+    return props.logs.map((log,index)=>{
         let date = new Date(log.created)
         
+        const loadEntry = (carIndex) => {
+            setCarIndex(carIndex)
+            props.push(`/car/logEntry/edit`)
+        }
+
         return (
             
-            <div style ={loggedCars}>
+            <div style ={loggedCars} key={index}>
             <ul>
-                <li>Date: {date.getMonth()+1} - {date.getDate()} - {date.getFullYear()}</li>
+                <li>Date: {date.getMonth()+1}/{date.getDate()}/{date.getFullYear()}</li>
                 <li>Purchase Amount: ${log.price}</li>
                 <li>Gallons: {log.gallons}</li>
                 <li>Odometer: {log.odometer}</li>
             </ul>
-            <Button label="Edit" className="p-button-raised p-button-warning" />
+            <Button 
+            label="Edit"
+            onClick= {()=>loadEntry(index)}
+            className="p-button-raised p-button-warning" />
         </div>
         )
     })
 }
 
-
-// logs.map(log => {
-//     console.log("LOG",log);
-//     return <div key={log.carId}>{log}</div>
-// })
-
-
-export default (params) => {
+export default (props) => {
+    
     const {carInfo:{make, model, carId, year, imgUrl}} = useContext(carInfoContext)
-
-    const [logs, setLogs] = useState([])
-
+    const { logs, getLogs } = useContext(logContext)
+    const [totals, setTotals] = useState({
+        amountSpent: "loading",
+        milesTravelled: "loading",
+        odometer: "loading"
+    })
     useEffect(() => {
-        authAxios.get(`/api/carLog/${carId}`).then((res) => {
-            setLogs(res.data)
-            console.log(res.data);
+        authAxios.get(`/api/totals/${carId}`).then(res=>{
+            setTotals(res.data)
+            getLogs(carId)
         })
-    }, [])   
-
+    },[])
+    
+    
     return (
         <div className="flex-col">
         <div style={carInfo}>
@@ -78,17 +85,17 @@ export default (params) => {
         </div>
 
 
-        <div style ={totals}>
+        <div style ={totalsStyle}>
             <h3>Totals</h3>
             <ul>
-                <li>Amount Spent on Gas: {"$35.24"} </li>
-                <li>Miles Traveled: {"352"}</li>
-                <li>Odometer: {"1,432"} </li>
+                <li>${totals.amountSpent} Spent on Gas</li>
+                <li>{totals.milesTravelled} Miles Traveled</li>
+                <li>Current Odometer: {totals.odometer} </li>
             </ul>
         </div>
 
 
-                <MappedLogs logs={logs}/>
+                <MappedLogs logs={logs} push={props.history.push}/>
 
 
        </div>

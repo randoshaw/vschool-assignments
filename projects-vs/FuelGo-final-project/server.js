@@ -29,7 +29,7 @@ app.use("/auth", require("./routes/authRouter.js")); // auth is just for logging
 app.use("/", expressJwt({ secret: process.env.SECRET })); // req.user - adds a user object to the request
 app.use("/api/carInfo", require("./routes/carInfoRouter"));
 app.use("/api/carLog", require("./routes/logRouter"));
-
+app.use("/api/totals", require("./routes/totalsRouter"))
 // Err handler
 app.use((err, req, res, next) => {
     console.log(err);

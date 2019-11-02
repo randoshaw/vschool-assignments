@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Button } from "primereact/button/";
 import Axios from "axios";
 import { carInfoContext } from "../context/carInfoProvider"
@@ -34,7 +34,7 @@ const CarInfo = props => {
         authAxios
             .put(`/api/carInfo/${carInfo.carId}`, carInfo)
             .then(res => {
-                props.history.push("/car/logEntry")}
+                props.history.push("/car/logEntry/new")}
                 )
             .catch(err => console.log(err));
     };

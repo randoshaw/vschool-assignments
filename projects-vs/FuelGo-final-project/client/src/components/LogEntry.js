@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Axios from "axios";
 import { InputSwitch } from "primereact/inputswitch";
 import { Button } from "primereact/button";
@@ -6,6 +6,7 @@ import { InputTextarea } from "primereact/inputtextarea";
 import { Calendar } from "primereact/calendar";
 import { InputText } from "primereact/inputtext";
 import { carInfoContext } from "../context/carInfoProvider"
+import { logContext } from "../context/logProvider"
 
 const authAxios = Axios.create();
 authAxios.interceptors.request.use(config => {
@@ -16,35 +17,42 @@ authAxios.interceptors.request.use(config => {
 
 export default props => {
     const {carInfo:{make, model, carId}} = useContext(carInfoContext)
-    console.log("carid",carId)
-    const initState = {
-        calendar: "",
-        odometer: "",
-        gallons: "",
-        price: "",
-        tankFull: false,
-        notes: "",
-    }
+    const {logs, setLogs, carIndex, setCarIndex} = useContext(logContext)
 
-    // useState returns an array of two items. 1st is state set to initial state. 2nd is a function, when called will update the state. 
-    // const arr = useState(initState)
-    // const state = arr[0]
-    // const setState = arr[1]
+    useEffect(() => {
+        if(props.match.params.method==="new"){setCarIndex(0)
+        setLogs(prev=>{
+            return [
+                {
+                    created: "",
+                    odometer: "",
+                    gallons: "",
+                    price: "",
+                    tankFull: false,
+                    notes: "",
+                    car: ""
+                }
+            ]
+        })
+        }
+
+        
+    },[])
     
-const [state, setState] = useState(initState)
-
-const handleChange = e => {
-    console.log("handleChange")
+    
+    const handleChange = e => {
     const { value, name } = e.target;
-    setState(prev => ({
-        ...prev,
-        [name]: value
-    }))
+    setLogs(prev => {
+        return prev.map((val, index)=>{
+            return index === carIndex 
+                ? ({...prev[carIndex],[name]:value})
+                : val
+        })
+    })
 }
 
 const toggleCheck = (e) => {
-    console.log(e.target)
-    setState(prev => ({
+    setLogs(prev => ({
         ...prev,
         tankFull : !prev.tankFull
     }))
@@ -52,32 +60,39 @@ const toggleCheck = (e) => {
 
 const handleSubmit = e => {
     e.preventDefault();
-    authAxios.post("/api/carLog", {...state, car: carId})
-    .then(res => {
-        console.log(res)
-        props.history.push("/car/loggedSum")
-    })
+    console.log(logs);
+    if(props.match.params.method==="edit"){
+        authAxios.put(`/api/carLog/${logs[carIndex]._id}`, logs[carIndex])
+        .then(res => {
+            props.history.push("/car/loggedSum")
+        })
+    }else if(props.match.params.method==="new"){
+        console.log("Posting new:",{...logs[0],car:carId});
+        authAxios.post(`/api/carLog`, 
+        {...logs[0],car:carId})
+        .then(res => {
+            props.history.push("/car/loggedSum")
+        })
+    }
 }
-
     return (
         <div className="flex-col">
-            <h2>Log Information For Your {make} {model} {state.car}</h2>
+            <h2>Log Information For Your {make} {model} </h2>
             <form onSubmit= {handleSubmit}>
-                <Calendar
+                {/* <Calendar
                     onChange={handleChange}
-                    value={state.calendar}
-                    name="calendar"
-                    // value="calendar"
-                    dateFormat="dd/mm/yy"
+                    value={logs[carIndex].created}
+                    name="created"
+                    dateFormat="mm/dd/yy"
                     showIcon= {true}
                     placeholder="Select Date"
-                ></Calendar>
+                ></Calendar> */}
                 <span className="p-float-label margin">
                     <InputText 
                         id="in"
                         type="number"
                         onChange={handleChange}
-                        value={state.odometer}
+                        value={logs[carIndex].odometer}
                         name="odometer"  />
                     <label htmlFor="in">Odometer</label>
                 </span>
@@ -86,7 +101,7 @@ const handleSubmit = e => {
                         id="in"
                         type="number"
                         onChange={handleChange}
-                        value={state.gallons}
+                        value={logs[carIndex].gallons}
                         name="gallons" />
                     <label 
                         htmlFor="in">Gallons Filled</label>
@@ -96,7 +111,7 @@ const handleSubmit = e => {
                     id="in"
                     type="number"
                     onChange={handleChange}
-                    value={state.price}
+                    value={logs[carIndex].price}
                     name="price" />
                     <label htmlFor="in">Price</label>
                 </span>
@@ -104,7 +119,7 @@ const handleSubmit = e => {
                 <InputSwitch
                     name="tankFull"
                     onChange={toggleCheck}
-                    checked={state.tankFull}
+                    checked={logs[carIndex].tankFull}
                     onLabel="Yes"
                     offLabel="No"
                     tooltip="Select if tank is full"
@@ -112,7 +127,7 @@ const handleSubmit = e => {
                 <InputTextarea
                     name="notes"
                     onChange={handleChange}
-                    value={state.notes}
+                    value={logs[carIndex].notes}
                     rows={5}
                     cols={30}
                     autoResize={true}

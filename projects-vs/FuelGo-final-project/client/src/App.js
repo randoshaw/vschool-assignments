@@ -35,7 +35,7 @@ const App = params => {
                     path="/car/carInfo/edit"
                     component={rprops => CarInfo({ ...rprops, title: "Edit", cancelButton: true})}
                 />
-                <Route path="/car/logentry" component={LogEntry} />
+                <Route path="/car/logentry/:method" component={LogEntry} />
                 <Route path="/car/loggedsum" component={LoggedSum} />
                 <Route exact path="/" component={Home} />
             </Switch>

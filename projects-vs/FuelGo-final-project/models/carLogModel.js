@@ -12,8 +12,9 @@ const carLogSchema = new Schema({
         required: true
     },
     created: {
-        type: Date,
-        default: Date.now
+        type: String,
+        required: false
+        // default: Date.now
     },
     user: {
         type: Schema.Types.ObjectId,

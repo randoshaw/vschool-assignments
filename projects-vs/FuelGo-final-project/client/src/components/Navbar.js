@@ -11,7 +11,7 @@ export default props => {
                         ? "nav-active"
                         : ""
                 }
-                to="/car/logEntry"
+                to="/car/logEntry/new"
             >
                 New Log
             </Link>

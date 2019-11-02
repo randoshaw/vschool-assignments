@@ -14,7 +14,7 @@ export default props => {
                 <label htmlFor="in">Password</label>
             </span>
             <Button label="Login" className="p-button-success p-button-raised" onClick = {
-                () => props.history.push('/car/logentry')}/>
+                () => props.history.push('/car/logentry/new')}/>
             <Button label="Sign Up" className="p-button-raised" onClick = {() => props.history.push('/carInfo/create')}/>
             {/* <form>
                 <input
