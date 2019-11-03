@@ -30,7 +30,7 @@ export default (props) => {
         
         authAxios
             .get("/api/carInfo/user").then(res => {
-            //console.log("GET", res.data[0]);
+            // console.log("GET", res.data[0]);
             setState({
                 make: res.data[0].make || "",
                 model: res.data[0].model || "",

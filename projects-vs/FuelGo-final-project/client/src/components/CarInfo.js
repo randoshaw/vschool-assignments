@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Button } from "primereact/button/";
 import { carInfoContext } from "../context/carInfoProvider"
 import { UserContext } from "../context/UserProvider"
-import Axios from "axios"
+// import Axios from "axios"
 // make a new carinfo post, and save id on signup or if no info exists
 // get carinfo by user
 //      GET '/api/carInfo/user'
@@ -11,16 +11,16 @@ import Axios from "axios"
 // on submit, PUT the new updated values to carinfo in db
 //      PUT '/api/carInfo/:id'
 
-const authAxios = Axios.create();
-authAxios.interceptors.request.use(config => {
-    const token = localStorage.getItem("token");
-    config.headers.Authorization = `Bearer ${token}`;
-    return config;
-});
+// const authAxios = Axios.create();
+// authAxios.interceptors.request.use(config => {
+//     const token = localStorage.getItem("token");
+//     config.headers.Authorization = `Bearer ${token}`;
+//     return config;
+// });
 
 const CarInfo = props => {
     const { carInfo, handleChange } = useContext(carInfoContext)
-    // const { authAxios } = useContext(UserContext)
+    const { authAxios } = useContext(UserContext)
 
     const goBack = e => {
         e.preventDefault();

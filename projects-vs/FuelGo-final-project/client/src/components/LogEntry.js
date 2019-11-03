@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import Axios from "axios";
+// import Axios from "axios";
 import { InputSwitch } from "primereact/inputswitch";
 import { Button } from "primereact/button";
 import { InputTextarea } from "primereact/inputtextarea";
@@ -9,25 +9,25 @@ import { carInfoContext } from "../context/carInfoProvider"
 import { logContext } from "../context/logProvider"
 import { UserContext } from "../context/UserProvider"
 
-const authAxios = Axios.create();
-authAxios.interceptors.request.use(config => {
-    const token = localStorage.getItem ("token")
-    config.headers.Authorization = `Bearer ${token}`
-    return config;
-})
+// const authAxios = Axios.create();
+// authAxios.interceptors.request.use(config => {
+//     const token = localStorage.getItem ("token")
+//     config.headers.Authorization = `Bearer ${token}`
+//     return config;
+// })
 
 export default props => {
     const {carInfo:{make, model, carId}} = useContext(carInfoContext)
     const {logs, setLogs, carIndex, setCarIndex} = useContext(logContext)
 
-    // const { authAxios } = useContext(UserContext)
+    const { authAxios } = useContext(UserContext)
 
     useEffect(() => {
         if(props.match.params.method==="new"){setCarIndex(0)
         setLogs(prev=>{
             return [
                 {
-                    created: "",
+                    created: "new Date()",
                     odometer: "",
                     gallons: "",
                     price: "",
@@ -53,10 +53,17 @@ export default props => {
 }
 
 const toggleCheck = (e) => {
-    setLogs(prev => ({
-        ...prev,
-        tankFull : !prev.tankFull
-    }))
+    setLogs(prev => {
+        return prev.map((val, index)=>{
+            return index === carIndex 
+                ? ({...prev[carIndex],tankFull: !prev[carIndex].tankFull})
+                : val
+        })
+    })
+    // setLogs(prev => ({
+    //     ...prev,
+    //     tankFull : !prev.tankFull
+    // }))
 }
 
 const handleSubmit = e => {
@@ -76,6 +83,14 @@ const handleSubmit = e => {
         })
     }
 }
+
+    const date = new Date(logs[carIndex].created)
+    const month = date.getMonth()+1
+    const day = date.getDate()+1
+    const year = date.getFullYear()
+    const calendarDate = `${month}/${day}/${year}`
+    
+
     return (
         <div className="flex-col">
             <h2>Log Information For Your {make} {model} </h2>
@@ -88,6 +103,18 @@ const handleSubmit = e => {
                     showIcon= {true}
                     placeholder="Select Date"
                 ></Calendar> */}
+                <p>{calendarDate}</p>
+                <span className="p-float-label margin">
+                    <InputText 
+                        id="in"
+                        type="date"
+                        onChange={handleChange}
+                        value={logs[carIndex].created}
+                        // value={calendarDate}
+                        name="created"  />
+                    <label htmlFor="in">Date</label>
+                </span>
+
                 <span className="p-float-label margin">
                     <InputText 
                         id="in"

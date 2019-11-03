@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react'
 import { Button } from 'primereact/button'
-import Axios from 'axios'
+// import Axios from 'axios'
 import { carInfoContext } from "../context/carInfoProvider"
 import { logContext } from "../context/logProvider"
 import { UserContext } from "../context/UserProvider"
@@ -21,12 +21,12 @@ const loggedCars = {
     "border":"1px solid black"
 }
 
-const authAxios = Axios.create();
-authAxios.interceptors.request.use(config => {
-    const token = localStorage.getItem ("token")
-    config.headers.Authorization = `Bearer ${token}`
-    return config;
-})
+// const authAxios = Axios.create();
+// authAxios.interceptors.request.use(config => {
+//     const token = localStorage.getItem ("token")
+//     config.headers.Authorization = `Bearer ${token}`
+//     return config;
+// })
 
 const MappedLogs = (props) => {
     const { setCarIndex } = useContext(logContext)
@@ -42,10 +42,12 @@ const MappedLogs = (props) => {
             
             <div style ={loggedCars} key={index}>
             <ul>
-                <li>Date: {date.getMonth()+1}/{date.getDate()}/{date.getFullYear()}</li>
+                <li>{date.getMonth()+1}/{date.getDate()+1}/{date.getFullYear()}</li>
                 <li>Purchase Amount: ${log.price}</li>
                 <li>Gallons: {log.gallons}</li>
                 <li>Odometer: {log.odometer}</li>
+                {log.tankFull && <li>Tank Selected as Filled</li>}
+                {log.notes && <li> Logged Notes: {log.notes} </li>}
             </ul>
             <Button 
             label="Edit"
@@ -58,7 +60,7 @@ const MappedLogs = (props) => {
 
 export default (props) => {
 
-    // const { authAxios } = useContext(UserContext)
+    const { authAxios } = useContext(UserContext)
     
     const {carInfo:{make, model, carId, year, imgUrl}} = useContext(carInfoContext)
     const { logs, getLogs } = useContext(logContext)

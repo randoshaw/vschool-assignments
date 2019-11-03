@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import CarInfo from "./components/CarInfo";
 import LogEntry from "./components/LogEntry";
 import LoggedSum from "./components/LoggedSum";
+import Logout from "./components/Logout"
 import Navbar from "./components/Navbar";
 import { Switch, Route } from "react-router-dom";
 
@@ -37,6 +38,7 @@ const App = params => {
                 />
                 <Route path="/car/logentry/:method" component={LogEntry} />
                 <Route path="/car/loggedsum" component={LoggedSum} />
+                <Route path="/logout" component={Logout} />
                 <Route exact path="/" component={Home} />
             </Switch>
         </>

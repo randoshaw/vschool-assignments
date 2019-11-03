@@ -35,7 +35,7 @@ export default props => {
             >
                 Log Summaries
             </Link>
-            <Link to="/">
+            <Link to="/logout">
                 Sign Out
             </Link>
         </div>
