@@ -1,13 +1,13 @@
 import React, { useEffect, createContext, useState, useContext } from 'react'
-import Axios from "axios"
+// import Axios from "axios"
 import { UserContext } from "../context/UserProvider"
 
-const authAxios = Axios.create();
-authAxios.interceptors.request.use(config => {
-    const token = localStorage.getItem("token");
-    config.headers.Authorization = `Bearer ${token}`;
-    return config;
-});
+// const authAxios = Axios.create();
+// authAxios.interceptors.request.use(config => {
+//     const token = localStorage.getItem("token");
+//     config.headers.Authorization = `Bearer ${token}`;
+//     return config;
+// });
 
 export const carInfoContext = createContext()
 
@@ -23,10 +23,11 @@ export default (props) => {
     };
 
     const [state, setState] = useState(initState)
-    // const { authAxios } = useContext(UserContext)
+    const { authAxios } = useContext(UserContext)
 
 
     useEffect(() => {
+        
         authAxios
             .get("/api/carInfo/user").then(res => {
             //console.log("GET", res.data[0]);

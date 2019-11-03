@@ -32,12 +32,24 @@ const CarInfo = props => {
     const handleSubmit = e => {
         e.preventDefault();
         console.log(carInfo)
-        authAxios
+        console.log(props.match.path);
+        if(props.match.path==="/carInfo/create"){
+            authAxios
+            .post(`/api/carInfo`, carInfo)
+            .then(res => {
+                props.history.push("/car/logEntry/new")}
+                )
+            .catch(err => console.log(err));
+        }else{
+            authAxios
             .put(`/api/carInfo/${carInfo.carId}`, carInfo)
             .then(res => {
                 props.history.push("/car/logEntry/new")}
                 )
             .catch(err => console.log(err));
+        }
+
+        
     };
 
     return (

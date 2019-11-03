@@ -82,16 +82,7 @@ function UserProvider(props){
         }))
     }
 
-    const addPost = newPost => {
-        userAxios.post("/api/post", newPost)
-            .then(res => {
-                setUserState(prevUserState => ({
-                    ...prevUserState,
-                    posts: [...prevUserState.posts, res.data]
-                }))
-            })
-            .catch(err => console.log(err))
-    }
+    
 
     return (
         <UserContext.Provider
