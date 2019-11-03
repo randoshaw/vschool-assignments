@@ -1,8 +1,9 @@
-import React, {useEffect, useContext, useState} from 'react'
-import {Button} from 'primereact/button'
+import React, { useEffect, useContext, useState } from 'react'
+import { Button } from 'primereact/button'
 import Axios from 'axios'
 import { carInfoContext } from "../context/carInfoProvider"
 import { logContext } from "../context/logProvider"
+import { UserContext } from "../context/UserProvider"
 
 
 const carInfo={
@@ -56,6 +57,8 @@ const MappedLogs = (props) => {
 }
 
 export default (props) => {
+
+    // const { authAxios } = useContext(UserContext)
     
     const {carInfo:{make, model, carId, year, imgUrl}} = useContext(carInfoContext)
     const { logs, getLogs } = useContext(logContext)

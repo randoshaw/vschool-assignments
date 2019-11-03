@@ -1,5 +1,6 @@
-import React, { useEffect, createContext, useState } from 'react'
+import React, { useEffect, createContext, useState, useContext } from 'react'
 import Axios from "axios"
+import { UserContext } from "../context/UserProvider"
 
 const authAxios = Axios.create();
 authAxios.interceptors.request.use(config => {
@@ -22,7 +23,9 @@ export default (props) => {
     };
 
     const [state, setState] = useState(initState)
-    
+    // const { authAxios } = useContext(UserContext)
+
+
     useEffect(() => {
         authAxios
             .get("/api/carInfo/user").then(res => {

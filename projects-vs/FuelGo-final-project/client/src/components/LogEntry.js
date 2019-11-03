@@ -7,6 +7,7 @@ import { Calendar } from "primereact/calendar";
 import { InputText } from "primereact/inputtext";
 import { carInfoContext } from "../context/carInfoProvider"
 import { logContext } from "../context/logProvider"
+import { UserContext } from "../context/UserProvider"
 
 const authAxios = Axios.create();
 authAxios.interceptors.request.use(config => {
@@ -18,6 +19,8 @@ authAxios.interceptors.request.use(config => {
 export default props => {
     const {carInfo:{make, model, carId}} = useContext(carInfoContext)
     const {logs, setLogs, carIndex, setCarIndex} = useContext(logContext)
+
+    // const { authAxios } = useContext(UserContext)
 
     useEffect(() => {
         if(props.match.params.method==="new"){setCarIndex(0)
@@ -35,8 +38,6 @@ export default props => {
             ]
         })
         }
-
-        
     },[])
     
     

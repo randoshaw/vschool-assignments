@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "primereact/button/";
 import { InputText } from "primereact/inputtext";
+import { Password } from "primereact/password";
 
 export default props => {
     return (
@@ -10,8 +11,9 @@ export default props => {
                 <label htmlFor="in">Username</label>
             </span>
             <span className="p-float-label margin">
-                <InputText id="in" />
+                
                 <label htmlFor="in">Password</label>
+                <Password id="in"/>
             </span>
             <Button label="Login" className="p-button-success p-button-raised" onClick = {
                 () => props.history.push('/car/logentry/new')}/>

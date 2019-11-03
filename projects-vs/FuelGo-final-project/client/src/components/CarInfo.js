@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Button } from "primereact/button/";
-import Axios from "axios";
 import { carInfoContext } from "../context/carInfoProvider"
-
+import { UserContext } from "../context/UserProvider"
+import Axios from "axios"
 // make a new carinfo post, and save id on signup or if no info exists
 // get carinfo by user
 //      GET '/api/carInfo/user'
@@ -20,6 +20,7 @@ authAxios.interceptors.request.use(config => {
 
 const CarInfo = props => {
     const { carInfo, handleChange } = useContext(carInfoContext)
+    // const { authAxios } = useContext(UserContext)
 
     const goBack = e => {
         e.preventDefault();
