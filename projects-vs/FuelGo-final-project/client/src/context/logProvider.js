@@ -4,15 +4,16 @@ import { UserContext } from "../context/UserProvider"
 export const logContext = createContext()
 
 export default (props) => {
-    const initialState = [{
-        created: new Date(),
-        odometer: "",
-        gallons: "",
-        price: "",
-        tankFull: false,
-        notes: "",
-        car: ""
-    }]
+    // const initialState = [{
+    //     created: new Date(),
+    //     odometer: "",
+    //     gallons: "",
+    //     price: "",
+    //     tankFull: false,
+    //     notes: "",
+    //     car: ""
+    // }]
+    const initialState = []
 
     const [logs, setLogs] = useState( initialState )
     const [carIndex, setCarIndex] = useState(0)
@@ -33,13 +34,26 @@ export default (props) => {
 
     })}
 
+    const deleteAll = (carId) => {
+        authAxios.delete(`/api/carLog/${carId}`)
+            .then((params) => {
+                setLogs(initialState)
+            }
+            ).catch((params) => {
+                console.log("delete error")
+            }
+            )
+    }
+    
+
     return (
         <logContext.Provider value={{
             logs,
             getLogs,
             setLogs,
             setCarIndex,
-            carIndex
+            carIndex,
+            deleteAll
         }}>
             {props.children}
         </logContext.Provider>

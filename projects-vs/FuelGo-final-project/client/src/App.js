@@ -18,8 +18,6 @@ import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 
 const App = params => {
-    const { authErrMsg, user } = useContext(UserContext);
-    console.log("App ", user, authErrMsg);
     return (
         <>
             <Header />

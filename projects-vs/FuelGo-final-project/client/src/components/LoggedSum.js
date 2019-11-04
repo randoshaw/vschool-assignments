@@ -1,13 +1,13 @@
 import React, { useEffect, useContext, useState } from 'react'
 import { Button } from 'primereact/button'
-// import Axios from 'axios'
+import {Dialog} from 'primereact/dialog';
 import { carInfoContext } from "../context/carInfoProvider"
 import { logContext } from "../context/logProvider"
 import { UserContext } from "../context/UserProvider"
 import "./styles/loggedSum.css"
 
 const MappedLogs = (props) => {
-    const { setCarIndex } = useContext(logContext)
+    const { setCarIndex, deleteAll } = useContext(logContext)
     return props.logs.map((log,index)=>{
         let date = new Date(log.created)
         
@@ -45,11 +45,12 @@ const MappedLogs = (props) => {
 }
 
 export default (props) => {
-
+    const [ confirmation, setConfirmation ] = useState({visible: false})
     const { authAxios } = useContext(UserContext)
     
     const {carInfo:{make, model, carId, year, imgUrl}} = useContext(carInfoContext)
-    const { logs, getLogs } = useContext(logContext)
+    const { logs, getLogs, deleteAll } = useContext(logContext)
+
     const [totals, setTotals] = useState({
         amountSpent: "loading",
         milesTravelled: "loading",
@@ -61,6 +62,16 @@ export default (props) => {
             getLogs(carId)
         })
     },[])
+    const showConfirmation = (e) => {
+        setConfirmation({visible: true})
+    }
+    const hideConfirmation = (e) => {
+        setConfirmation({visible: false})
+    }
+    const handleDeleteAll = (e) => {
+        deleteAll(carId)
+        hideConfirmation()
+    }
     
     
     return (
@@ -73,6 +84,7 @@ export default (props) => {
                             <div>{year}</div>
                             <div>{make}</div>
                             <div>{model}</div>
+                            
                         </div>
                     <img src={imgUrl} alt= {`${make} ${model}`} width="275px"/>
                 </div>
@@ -88,6 +100,18 @@ export default (props) => {
             <div className="logs-container">
                 <MappedLogs logs={logs} push={props.history.push}/>
             </div>    
+
+            <Dialog header="Clear All Logs?" footer={(
+    <div>
+        <Button label="Yes - Delete Now" icon="pi pi-check" onClick={handleDeleteAll} className="p-button-danger"/>
+        <Button label="No - Cancel" icon="pi pi-times" onClick={hideConfirmation} />
+    </div>
+)} visible={confirmation.visible} style={{width: '50vw'}} modal={true} onHide={hideConfirmation}>
+                Are you sure that you want to clear all logs?
+            </Dialog>
+
+            <Button label="Reset Logs" icon="pi pi-trash" className="p-button-rounded p-button-danger" onClick={showConfirmation} />
+
 
        </div>
        </>

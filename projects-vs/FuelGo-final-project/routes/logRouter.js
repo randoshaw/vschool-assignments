@@ -66,10 +66,10 @@ logRouter.put("/:logId", (req, res, next) => {
     );
 });
 
-logRouter.delete("/:logId", (req, res, next) => {
-    CarLog.findOneAndRemove(
+logRouter.delete("/:carId", (req, res, next) => {
+    CarLog.deleteMany(
         {
-            _id: req.params.logId,
+            car: req.params.carId,
             user: req.user._id
         },
         (err, info) => {
