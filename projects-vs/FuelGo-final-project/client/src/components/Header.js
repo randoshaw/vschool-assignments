@@ -1,6 +1,6 @@
 import React from "react";
 const style = {
-    "backgroundColor": "red",
+    "backgroundColor": "#a6a6a6",
     "fontSize": "50px",
     "textAlign": "center",
     "marginBottom": "20px"

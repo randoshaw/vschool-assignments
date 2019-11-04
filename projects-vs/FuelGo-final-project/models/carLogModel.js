@@ -12,8 +12,8 @@ const carLogSchema = new Schema({
         required: true
     },
     created: {
-        type: Date,
-        required: true
+        type: String,
+        required: false
         // default: Date.now
     },
     user: {

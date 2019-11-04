@@ -4,6 +4,8 @@ import Home from "./components/Home";
 import Header from "./components/Header";
 import CarInfo from "./components/CarInfo";
 import LogEntry from "./components/LogEntry";
+import LogNew from "./components/LogNew"
+import LogEdit from "./components/LogEdit"
 import LoggedSum from "./components/LoggedSum";
 import Logout from "./components/Logout";
 import Navbar from "./components/Navbar";
@@ -54,8 +56,13 @@ const App = params => {
                     }
                 />
                 <ProtectedRoute 
-                    component = {LogEntry}
-                    path = "/car/logentry/:method"
+                    component = {LogNew}
+                    path = "/car/logentry/new"
+                    redirectTo = "/"
+                />
+                <ProtectedRoute 
+                    component = {LogEdit}
+                    path = "/car/logentry/edit"
                     redirectTo = "/"
                 />
                 <ProtectedRoute 

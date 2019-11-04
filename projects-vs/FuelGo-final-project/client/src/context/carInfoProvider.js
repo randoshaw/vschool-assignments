@@ -1,12 +1,9 @@
-import React, { useEffect, createContext, useState, useContext } from 'react'
+import React, { createContext, useState, useContext } from 'react'
 import { UserContext } from "../context/UserProvider"
-import { useHistory } from "react-router-dom"
 
 export const carInfoContext = createContext()
 
 export default (props) => {
-
-    const { push } = useHistory()
     const initState = {
         make: "",
         model: "",
@@ -16,8 +13,8 @@ export default (props) => {
         carId: ""
     };
 
-    const [state, setState] = useState(initState)
-    const [hasCar, setHasCar] = useState(false)
+    const [ state, setState ] = useState(initState)
+    const [ hasCar, setHasCar ] = useState(false)
     const { authAxios } = useContext(UserContext)
 
     const getCar = () => {
@@ -37,10 +34,6 @@ export default (props) => {
             }
         });
     }
-    
-    // useEffect(() => {
-        
-    // }, []);
 
     const handleChange = e => {
         const { value, name } = e.target;
@@ -57,6 +50,7 @@ export default (props) => {
             hasCar,
             setHasCar,
             getCar,
+            carId: state.carId,
             setCarInfo: setState}}>
             {props.children} 
         </carInfoContext.Provider>

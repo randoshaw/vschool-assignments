@@ -1,5 +1,10 @@
 body, h1 {
     margin: 0;
+    background: #c8c8c8;
+}
+*{
+    font-family: 'Baloo Bhaina', cursive;
+
 }
 
 input {
@@ -26,49 +31,10 @@ form {
     margin: 24px 0;
 }
 
-/* Navbar */
-.nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.nav > a {
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 20px;
-    margin: 0;
-    text-align: center;
-    width: 80%;
-    padding: 8px;
-}
-.nav-active {
-    background-color: lightgrey;
-}
+img {
+    border-radius: 8px;
+    border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat;
+    box-shadow: 0px 2px 10px -6px black;
+    margin: 8px;
 
-/* LoggedSum */
-.logged-cars {
-    width: 40vw;
-    border: 2px solid black;
-    border-radius: 5px;
-    margin: 15px;
-    text-align: center;
-    box-shadow: 5px 5px 5px black;
-    list-style: none;
-}
-
-.totals {
-    width: 60vw;
-    border: 3px solid black;
-    border-radius: 5px;
-    margin-bottom: 25px;
-    text-align: center;
-    list-style: none;
-}
-
-.car-info{
-    width: 80vw;
-    border: 4px solid black;
-    border-radius: 5px;
-    margin: 45px;
-    text-align: center;
 }

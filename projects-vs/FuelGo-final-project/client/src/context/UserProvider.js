@@ -1,16 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import userAxios from "../Axios/UserAxios"
 
 export const UserContext = React.createContext()
-const userAxios = axios.create()
-
-// Adds token to userAxios for requests going to /api.
-userAxios.interceptors.request.use((config) => {
-    const token = localStorage.getItem("token")
-    config.headers.Authorization = `Bearer ${token}`
-    return config
-})
-
 
 function UserProvider(props){
     const initState = {

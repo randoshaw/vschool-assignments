@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-// import Axios from "axios";
 import { InputSwitch } from "primereact/inputswitch";
 import { Button } from "primereact/button";
 import { InputTextarea } from "primereact/inputtextarea";
@@ -8,13 +7,7 @@ import { InputText } from "primereact/inputtext";
 import { carInfoContext } from "../context/carInfoProvider"
 import { logContext } from "../context/logProvider"
 import { UserContext } from "../context/UserProvider"
-
-// const authAxios = Axios.create();
-// authAxios.interceptors.request.use(config => {
-//     const token = localStorage.getItem ("token")
-//     config.headers.Authorization = `Bearer ${token}`
-//     return config;
-// })
+import "./styles/logEntry.css"
 
 export default props => {
     const {carInfo:{make, model, carId}} = useContext(carInfoContext)
@@ -107,8 +100,8 @@ const handleSubmit = e => {
     
 
     return (
-        <div className="flex-col">
-            <h2>Log Information For Your {make} {model} </h2>
+        <div className="log-entry-form">
+            <div style={{fontSize:"120%"}}>Log Information For Your {make} {model} </div>
             <form onSubmit= {handleSubmit}>
                 {/* <Calendar
                     onChange={handleChange}
@@ -119,8 +112,9 @@ const handleSubmit = e => {
                     placeholder="Select Date"
                 ></Calendar> */}
                 <p>{calendarDate}</p>
-                <span className="p-float-label margin">
+                <span className="p-float-label margin large-font">
                     <InputText 
+                        className="large-font"
                         id="in"
                         type="date"
                         onChange={handleChange}
@@ -130,8 +124,9 @@ const handleSubmit = e => {
                     <label htmlFor="in">Date</label>
                 </span>
 
-                <span className="p-float-label margin">
+                <span className="p-float-label margin large-font">
                     <InputText 
+                        className="large-font"
                         id="in"
                         type="number"
                         onChange={handleChange}
@@ -139,8 +134,9 @@ const handleSubmit = e => {
                         name="odometer"  />
                     <label htmlFor="in">Odometer</label>
                 </span>
-                <span className="p-float-label margin">
+                <span className="p-float-label margin large-font">
                     <InputText 
+                        className="large-font"
                         id="in"
                         type="number"
                         onChange={handleChange}
@@ -149,35 +145,42 @@ const handleSubmit = e => {
                     <label 
                         htmlFor="in">Gallons Filled</label>
                 </span>                
-                <span className="p-float-label margin">
+                <span className="p-float-label margin large-font">
                     <InputText
-                    id="in"
-                    type="number"
-                    onChange={handleChange}
-                    value={logs[carIndex].price}
-                    name="price" />
-                    <label htmlFor="in">Price</label>
+                        className="large-font"
+                        id="in"
+                        type="number"
+                        onChange={handleChange}
+                        value={logs[carIndex].price}
+                        name="price" />
+                        <label htmlFor="in">Price</label>
                 </span>
                 Tank Full?{" "}
-                <InputSwitch
-                    name="tankFull"
-                    onChange={toggleCheck}
-                    checked={logs[carIndex].tankFull}
-                    onLabel="Yes"
-                    offLabel="No"
-                    tooltip="Select if tank is full"
+                <InputSwitch 
+                        name="tankFull"
+                        onChange={toggleCheck}
+                        checked={logs[carIndex].tankFull}
+                        onLabel="Yes"
+                        offLabel="No"
+                        tooltip="Select if tank is full"
                 />
+                <div>
                 <InputTextarea
-                    name="notes"
-                    onChange={handleChange}
-                    value={logs[carIndex].notes}
-                    rows={5}
-                    cols={30}
-                    autoResize={true}
-                    placeholder="Log Notes"
+                        className="large-font"
+                        name="notes"
+                        onChange={handleChange}
+                        value={logs[carIndex].notes}
+                        rows={5}
+                        cols={22}
+                        autoResize={true}
+                        placeholder="Log Notes"
                 />
-                   <Button label="Submit"
-                   className="p-button-raised"/>
+                </div>
+                    
+                <div>
+                    <Button label="Submit"
+                    className="p-button-raised"/>
+                </div>
             </form>
          
         </div>

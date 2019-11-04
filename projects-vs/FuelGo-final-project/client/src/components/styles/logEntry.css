@@ -1,0 +1,26 @@
+
+.log-entry-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+.large-font, .large-font > input, .p-calendar > input, .p-calendar.p-calendar-w-btn .p-inputtext, .p-inputtextarea, .p-filled, .p-inputtextarea-resizable, text-area {
+    font-size: 16pt;
+    height: 50px;
+    font-family: 'Baloo Bhaina', cursive;
+
+}
+
+.large-font:nth-child(1n){
+    padding: 6px 0;
+    font-size: 16pt;
+
+}
+
+@media screen and (min-width: 678px) {
+
+    .log-entry-form > form:nth-child(1n){
+        width: 50%;
+    }
+  }

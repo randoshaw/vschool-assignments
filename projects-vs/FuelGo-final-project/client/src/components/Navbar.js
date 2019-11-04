@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// Update Car Info, New Log, Log Summary, Sign Out
+import "./styles/navbar.css"
+
 export default props => {
-    // console.log(props);
     return (
         <div className="nav">
             <Link

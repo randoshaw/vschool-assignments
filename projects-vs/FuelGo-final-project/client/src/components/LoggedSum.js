@@ -4,37 +4,7 @@ import { Button } from 'primereact/button'
 import { carInfoContext } from "../context/carInfoProvider"
 import { logContext } from "../context/logProvider"
 import { UserContext } from "../context/UserProvider"
-
-
-// const carInfo={
-//     "width":"80vw",
-//     "border":"4px solid black",
-//     "border-radius":"5px",
-//     "margin": "45px"
-// }
-
-// const totalsStyle={
-//     "width":"60vw",
-//     "border":"3px solid black",
-//     "border-radius":"5px",
-//     "margin-bottom": "25px"
-
-// }
-
-// const loggedCars = {
-//     "width":"40vw",
-//     "border":"2px solid black",
-//     "border-radius":"5px",
-//     "margin": "15px"
-
-// }
-
-// const authAxios = Axios.create();
-// authAxios.interceptors.request.use(config => {
-//     const token = localStorage.getItem ("token")
-//     config.headers.Authorization = `Bearer ${token}`
-//     return config;
-// })
+import "./styles/loggedSum.css"
 
 const MappedLogs = (props) => {
     const { setCarIndex } = useContext(logContext)
@@ -47,21 +17,29 @@ const MappedLogs = (props) => {
         }
 
         return (
-            
-            <div className="logged-cars" key={index}>
-            <ul>
-                <li>{date.getMonth()+1}/{date.getDate()+1}/{date.getFullYear()}</li>
-                <li>Purchase Amount: ${log.price}</li>
-                <li>Gallons: {log.gallons}</li>
-                <li>Odometer: {log.odometer}</li>
-                {log.tankFull && <li>Tank Selected as Filled</li>}
-                {log.notes && <li> Logged Notes: {log.notes} </li>}
-            </ul>
-            <Button 
-            label="Edit"
-            onClick= {()=>loadEntry(index)}
-            className="p-button-raised p-button-warning" />
-        </div>
+            <div className="logged-card" key={index}>
+                    <div className="item-header">{date.getMonth()+1}/{date.getDate()+1}/{date.getFullYear()}
+                    <div style={{fontSize:"120%"}}>${log.price}</div>
+                    
+                    </div>
+                <div className="log-content">
+                    <div style={{margin:"6px 30px", width: 150}}>
+                        <div style={{textAlign:"left"}}>Gallons: {log.gallons}</div>
+                        <div style={{textAlign:"left"}}>Odometer: {log.odometer}</div>
+                        
+                        <div style={{textAlign:"left"}}> {log.notes ? `Logged Notes: ${log.notes}` 
+                        : <p> </p> }</div>
+                    </div>
+                    <div className="log-btn" >
+                    <div style={{visibility: log.tankFull ? "unset" : "hidden"}}>Tank Filled</div>
+
+                        <Button 
+                            label="Edit"
+                            onClick= {()=>loadEntry(index)}
+                            className="p-button-raised p-button-warning" />
+                    </div>
+                </div>
+            </div>
         )
     })
 }
@@ -86,31 +64,32 @@ export default (props) => {
     
     
     return (
+        <>
         <div className="flex-col">
-        <div className="car-info">
-        <h3>Car Information</h3>
-        <ul>
-            <li>Make: {make}</li>
-            <li>Model: {model}</li>
-            <li>Year: {year}</li>
-        </ul>
-        <img src={imgUrl} alt= {`${make} ${model}`} width="275px"/>
-        </div>
-
-
-        <div className ="totals">
-            <h3>Totals</h3>
-            <ul>
-                <li>${totals.amountSpent} Spent on Gas</li>
-                <li>{totals.milesTravelled} Miles Traveled</li>
-                <li>Current Odometer: {totals.odometer} </li>
-            </ul>
-        </div>
-
-
+            <div className="summary-container">
+                <div className="car-info-card">
+                    <div className="item-header">Car Information</div>
+                        <div className="car-info">
+                            <div>{year}</div>
+                            <div>{make}</div>
+                            <div>{model}</div>
+                        </div>
+                    <img src={imgUrl} alt= {`${make} ${model}`} width="275px"/>
+                </div>
+                <div className ="totals">
+                    <div className="item-header">Totals</div>
+                    <div>
+                        <div>${totals.amountSpent} Spent on Gas</div>
+                        <div>{totals.milesTravelled} Miles Traveled</div>
+                        <div>Current Odometer: {totals.odometer} </div>
+                    </div>
+                </div>
+            </div>
+            <div className="logs-container">
                 <MappedLogs logs={logs} push={props.history.push}/>
-
+            </div>    
 
        </div>
+       </>
     )
 }
