@@ -7,14 +7,14 @@ import Logs from "./context/logProvider";
 import UserContext from "./context/UserProvider";
 
 ReactDOM.render(
-    <BrowserRouter>
-        <UserContext>
+    <UserContext>
+        <BrowserRouter>
             <CarInfo>
                 <Logs>
                     <App />
                 </Logs>
             </CarInfo>
-        </UserContext>
-    </BrowserRouter>,
+        </BrowserRouter>
+    </UserContext>,
     document.getElementById("root")
 );

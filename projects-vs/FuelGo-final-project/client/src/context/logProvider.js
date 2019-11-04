@@ -13,7 +13,7 @@ export const logContext = createContext()
 
 export default (props) => {
     const [logs, setLogs] = useState( [{
-        created: "",
+        created: new Date(),
         odometer: "",
         gallons: "",
         price: "",
@@ -31,8 +31,27 @@ export default (props) => {
             const dated = res.data.map(log => {
                 return {...log,created:(new Date(log.created))}
             })
-            console.log(dated)
-            setLogs(dated)
+            console.log("res.data",res.data)
+            console.log("carId",carId)
+            console.log("logs length", logs.length)
+        if(res.data.length===0){
+            console.log("no logs, setting default")
+            setLogs([
+                                {
+                                    created: new Date(),
+                                    odometer: "",
+                                    gallons: "",
+                                    price: "",
+                                    tankFull: false,
+                                    notes: "",
+                                    car: ""
+                                }
+                            ])
+        }
+            if(res.data.length>0){
+                setLogs(res.data)
+            }
+
     })}
 
     

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Button } from "primereact/button/";
 import { carInfoContext } from "../context/carInfoProvider"
 import { UserContext } from "../context/UserProvider"
@@ -19,21 +19,23 @@ import { UserContext } from "../context/UserProvider"
 // });
 
 const CarInfo = props => {
-    const { carInfo, handleChange } = useContext(carInfoContext)
+    const { carInfo, handleChange, hasCar, getCar } = useContext(carInfoContext)
     const { authAxios } = useContext(UserContext)
+
+    useEffect(() => {
+        getCar()    
+    }, []);
 
     const goBack = e => {
         e.preventDefault();
         props.history.goBack();
     };
-
     
-
     const handleSubmit = e => {
         e.preventDefault();
         console.log(carInfo)
-        console.log(props.match.path);
-        if(props.match.path==="/carInfo/create"){
+        console.log(props.location.pathname);
+        if(props.location.pathname==="/carInfo/create"){
             authAxios
             .post(`/api/carInfo`, carInfo)
             .then(res => {
@@ -51,7 +53,10 @@ const CarInfo = props => {
 
         
     };
-
+    console.log("car info props", props)
+    if(hasCar && props.location.pathname==="/carInfo/create"){
+        props.history.push("/car/logentry/new")
+    }
     return (
         <div className="flex-col">
             <h2>{props.title} Your Car Information</h2>
@@ -59,35 +64,35 @@ const CarInfo = props => {
                 <input
                     type="text"
                     name="make"
-                    value={carInfo.make}
+                    value={carInfo.make || ""}
                     placeholder="Make"
                     onChange={handleChange}
                 />
                 <input
                     type="text"
                     name="model"
-                    value={carInfo.model}
+                    value={carInfo.model || ""}
                     placeholder="Model"
                     onChange={handleChange}
                 />
                 <input
                     type="Number"
                     name="year"
-                    value={carInfo.year}
+                    value={carInfo.year || ""}
                     placeholder="Year"
                     onChange={handleChange}
                 />
                 <input
                     type="Number"
                     name="odometer"
-                    value={carInfo.odometer}
+                    value={carInfo.odometer || ""}
                     placeholder="Odometer"
                     onChange={handleChange}
                 />
                 <input
                     type="url"
                     name="imgUrl"
-                    value={carInfo.imgUrl}
+                    value={carInfo.imgUrl || ""}
                     placeholder="Upload ImgUrl"
                     onChange={handleChange}
                 />

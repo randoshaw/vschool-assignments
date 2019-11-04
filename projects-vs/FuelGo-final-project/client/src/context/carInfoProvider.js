@@ -1,18 +1,12 @@
 import React, { useEffect, createContext, useState, useContext } from 'react'
-// import Axios from "axios"
 import { UserContext } from "../context/UserProvider"
-
-// const authAxios = Axios.create();
-// authAxios.interceptors.request.use(config => {
-//     const token = localStorage.getItem("token");
-//     config.headers.Authorization = `Bearer ${token}`;
-//     return config;
-// });
+import { useHistory } from "react-router-dom"
 
 export const carInfoContext = createContext()
 
 export default (props) => {
 
+    const { push } = useHistory()
     const initState = {
         make: "",
         model: "",
@@ -23,24 +17,30 @@ export default (props) => {
     };
 
     const [state, setState] = useState(initState)
+    const [hasCar, setHasCar] = useState(false)
     const { authAxios } = useContext(UserContext)
 
-
-    useEffect(() => {
-        
+    const getCar = () => {
         authAxios
             .get("/api/carInfo/user").then(res => {
-            // console.log("GET", res.data[0]);
-            setState({
-                make: res.data[0].make || "",
-                model: res.data[0].model || "",
-                year: res.data[0].year || "",
-                odometer: res.data[0].odometer || "",
-                imgUrl: res.data[0].imgUrl || "",
-                carId: res.data[0]._id || ""
-            });
+            console.log("GET", res.data[0]);
+            if(res.data.length>0){
+                setHasCar(true)
+                setState({
+                    make: res.data[0].make || "",
+                    model: res.data[0].model || "",
+                    year: res.data[0].year || "",
+                    odometer: res.data[0].odometer || "",
+                    imgUrl: res.data[0].imgUrl || "",
+                    carId: res.data[0]._id || ""
+                });                
+            }
         });
-    }, []);
+    }
+    
+    // useEffect(() => {
+        
+    // }, []);
 
     const handleChange = e => {
         const { value, name } = e.target;
@@ -51,7 +51,13 @@ export default (props) => {
     };
 
     return (
-        <carInfoContext.Provider value = {{carInfo: state, handleChange,setCarInfo: setState}}>
+        <carInfoContext.Provider value = {
+            {carInfo: state, 
+            handleChange,
+            hasCar,
+            setHasCar,
+            getCar,
+            setCarInfo: setState}}>
             {props.children} 
         </carInfoContext.Provider>
     )

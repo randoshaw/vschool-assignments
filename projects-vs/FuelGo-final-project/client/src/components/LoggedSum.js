@@ -6,20 +6,28 @@ import { logContext } from "../context/logProvider"
 import { UserContext } from "../context/UserProvider"
 
 
-const carInfo={
-    "width":"80vw",
-    "border":"2px solid black"
-}
+// const carInfo={
+//     "width":"80vw",
+//     "border":"4px solid black",
+//     "border-radius":"5px",
+//     "margin": "45px"
+// }
 
-const totalsStyle={
-    "width":"60vw",
-    "border":"2px solid black"
-}
+// const totalsStyle={
+//     "width":"60vw",
+//     "border":"3px solid black",
+//     "border-radius":"5px",
+//     "margin-bottom": "25px"
 
-const loggedCars = {
-    "width":"40vw",
-    "border":"1px solid black"
-}
+// }
+
+// const loggedCars = {
+//     "width":"40vw",
+//     "border":"2px solid black",
+//     "border-radius":"5px",
+//     "margin": "15px"
+
+// }
 
 // const authAxios = Axios.create();
 // authAxios.interceptors.request.use(config => {
@@ -40,7 +48,7 @@ const MappedLogs = (props) => {
 
         return (
             
-            <div style ={loggedCars} key={index}>
+            <div className="logged-cars" key={index}>
             <ul>
                 <li>{date.getMonth()+1}/{date.getDate()+1}/{date.getFullYear()}</li>
                 <li>Purchase Amount: ${log.price}</li>
@@ -79,7 +87,7 @@ export default (props) => {
     
     return (
         <div className="flex-col">
-        <div style={carInfo}>
+        <div className="car-info">
         <h3>Car Information</h3>
         <ul>
             <li>Make: {make}</li>
@@ -90,7 +98,7 @@ export default (props) => {
         </div>
 
 
-        <div style ={totalsStyle}>
+        <div className ="totals">
             <h3>Totals</h3>
             <ul>
                 <li>${totals.amountSpent} Spent on Gas</li>

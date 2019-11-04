@@ -16,8 +16,6 @@ function UserProvider(props){
     const initState = {
         user: JSON.parse(localStorage.getItem("user")) || {},
         token: localStorage.getItem("token") || "",
-        posts: [],
-        userPosts: [],
         authErrMsg: ""
     }
     const [userState, setUserState] = useState(initState)
@@ -25,6 +23,7 @@ function UserProvider(props){
     const signup = credentials => {
         axios.post("/auth/signup", credentials)
             .then(res => {
+                clearAuthErr()
                 const { user, token } = res.data
                 // save user info and token in localStorage and react state
                 localStorage.setItem("user", JSON.stringify(user))
@@ -36,23 +35,24 @@ function UserProvider(props){
                     })
                 )
             })
-            .catch(err => handleAuthErr(err.response.data.errMsg))
+            .catch(err => handleAuthErr(err))
     }
 
     const login = credentials => {
         axios.post("/auth/login", credentials)
             .then(res => {
                 const { user, token } = res.data
+                clearAuthErr()
                 localStorage.setItem("user", JSON.stringify(user))
                 localStorage.setItem("token", token)
                 setUserState(prevUserState => ({
-                    ...prevUserState,
-                    user: user,
-                    token: token
-                })
-            )
+                        ...prevUserState,
+                        user: user,
+                        token: token
+                    })
+                )
             })
-            .catch(err => handleAuthErr(err.response.data.errMsg))
+            .catch(err => handleAuthErr(err))
     }
 
     const logout = () => {
@@ -61,8 +61,6 @@ function UserProvider(props){
         setUserState({
             user: {},
             token: "",
-            posts: [],
-            userPosts: [],
             authErrMsg: ""
         })
     }

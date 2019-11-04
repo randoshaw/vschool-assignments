@@ -18,29 +18,38 @@ import { UserContext } from "../context/UserProvider"
 
 export default props => {
     const {carInfo:{make, model, carId}} = useContext(carInfoContext)
-    const {logs, setLogs, carIndex, setCarIndex} = useContext(logContext)
-
+    const {logs, setLogs, carIndex, setCarIndex, getLogs} = useContext(logContext)
     const { authAxios } = useContext(UserContext)
 
+    // useEffect(() => {
+    //     console.log("Log Entry", props.location.pathname)
+    //     if(props.location.pathname==="/car/logEntry/new"){
+    //         setCarIndex(0)
+    //         setLogs(prev=>{
+    //             return [
+    //                 {
+    //                     created: new Date(),
+    //                     odometer: "",
+    //                     gallons: "",
+    //                     price: "",
+    //                     tankFull: false,
+    //                     notes: "",
+    //                     car: ""
+    //                 }
+    //             ]
+    //         })
+    //     }
+    // },[])
     useEffect(() => {
-        if(props.match.params.method==="new"){setCarIndex(0)
-        setLogs(prev=>{
-            return [
-                {
-                    created: "new Date()",
-                    odometer: "",
-                    gallons: "",
-                    price: "",
-                    tankFull: false,
-                    notes: "",
-                    car: ""
-                }
-            ]
-        })
-        }
-    },[])
+        getLogs(carId)
+
+    },[]
+    )
     
-    
+    if(props.location.pathname==="/car/logEntry/new"){
+        setCarIndex(0)
+    }
+
     const handleChange = e => {
     const { value, name } = e.target;
     setLogs(prev => {
@@ -68,13 +77,13 @@ const toggleCheck = (e) => {
 
 const handleSubmit = e => {
     e.preventDefault();
-    console.log(logs);
-    if(props.match.params.method==="edit"){
+    console.log("submit Log Entry", props);
+    if(props.location.pathname==="/car/logEntry/edit"){
         authAxios.put(`/api/carLog/${logs[carIndex]._id}`, logs[carIndex])
         .then(res => {
             props.history.push("/car/loggedSum")
         })
-    }else if(props.match.params.method==="new"){
+    }else if(props.location.pathname==="/car/logEntry/new"){
         console.log("Posting new:",{...logs[0],car:carId});
         authAxios.post(`/api/carLog`, 
         {...logs[0],car:carId})
@@ -83,12 +92,18 @@ const handleSubmit = e => {
         })
     }
 }
+    var calendarDate = ""
+    if(logs[carIndex]){
 
-    const date = new Date(logs[carIndex].created)
-    const month = date.getMonth()+1
-    const day = date.getDate()+1
-    const year = date.getFullYear()
-    const calendarDate = `${month}/${day}/${year}`
+        const date = new Date(logs[carIndex].created)
+        const month = date.getMonth()+1
+        const day = date.getDate()+1
+        const year = date.getFullYear()
+        calendarDate = `${month}/${day}/${year}`
+    }
+    else{
+        
+    }
     
 
     return (
