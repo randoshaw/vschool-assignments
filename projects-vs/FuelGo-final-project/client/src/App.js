@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { UserContext } from "./context/UserProvider";
+import React from "react";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import CarInfo from "./components/CarInfo";
-import LogEntry from "./components/LogEntry";
+// import LogEntry from "./components/LogEntry";
+import Footer from "./components/Footer"
 import LogNew from "./components/LogNew"
 import LogEdit from "./components/LogEdit"
 import LoggedSum from "./components/LoggedSum";
@@ -71,6 +71,7 @@ const App = params => {
                 <Route path="/logout" component={Logout} />
                 <Route exact path="/" component={Home} />
             </Switch>
+            <Footer />
         </>
     );
 };

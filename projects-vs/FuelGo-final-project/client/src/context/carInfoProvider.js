@@ -20,7 +20,7 @@ export default (props) => {
     const getCar = () => {
         authAxios
             .get("/api/carInfo/user").then(res => {
-            console.log("GET", res.data[0]);
+            // console.log("GET", res.data[0]);
             if(res.data.length>0){
                 setHasCar(true)
                 setState({

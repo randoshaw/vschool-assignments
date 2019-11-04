@@ -2,12 +2,11 @@ import React, {useState} from 'react'
 import { InputSwitch } from "primereact/inputswitch";
 import { Button } from "primereact/button";
 import { InputTextarea } from "primereact/inputtextarea";
-import { Calendar } from "primereact/calendar";
+// import { Calendar } from "primereact/calendar";
 import { InputText } from "primereact/inputtext";
 import './styles/logEntry.css'
 
 export default props => {
-    console.log("Log Form props", props)
 
     const [state, setState] = useState((props.edit || {}))
 
@@ -16,9 +15,6 @@ export default props => {
         setState(prev=>({...prev,[name]:value}))
     }
     const handleSubmit = e => {
-        console.log("Submitting Log Form")
-        console.log("Log Form props", props)
-        console.log("Log Form state", state)
         props.handleSubmit({e,state})
     }
 

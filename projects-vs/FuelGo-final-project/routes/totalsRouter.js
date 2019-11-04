@@ -3,7 +3,6 @@ const totalsRouter = express.Router();
 const CarLog = require("../models/carLogModel")
 
 totalsRouter.get('/:carId', (req, res, next) => { //req.params.carId. ':' adds the params
-console.log("USER",req.user);
     CarLog.find({
         user: req.user._id,
         car: req.params.carId

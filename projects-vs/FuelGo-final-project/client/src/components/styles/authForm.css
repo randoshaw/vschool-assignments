@@ -1,0 +1,18 @@
+
+.auth-form-container{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+.auth-form-element {
+    width: 80vw;
+    text-align: center;
+}
+
+@media screen and (min-width: 378px) {
+
+    .auth-form-element{
+        width: 302px;
+    }
+  }

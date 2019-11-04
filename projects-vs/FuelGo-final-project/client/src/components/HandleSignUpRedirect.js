@@ -9,7 +9,6 @@ export default (props) => {
         props.push('/carInfo/create')
     }
 
-    console.log("Handling Login Redirect",props)
     return (
         <div>
             {props.err && <p style={red}>{props.err}</p>}

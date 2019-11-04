@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { InputSwitch } from "primereact/inputswitch";
 import { Button } from "primereact/button";
 import { InputTextarea } from "primereact/inputtextarea";
-import { Calendar } from "primereact/calendar";
+// import { Calendar } from "primereact/calendar";
 import { InputText } from "primereact/inputtext";
 import { carInfoContext } from "../context/carInfoProvider"
 import { logContext } from "../context/logProvider"
@@ -15,7 +15,6 @@ export default props => {
     const { authAxios } = useContext(UserContext)
 
     // useEffect(() => {
-    //     console.log("Log Entry", props.location.pathname)
     //     if(props.location.pathname==="/car/logEntry/new"){
     //         setCarIndex(0)
     //         setLogs(prev=>{
@@ -70,14 +69,12 @@ const toggleCheck = (e) => {
 
 const handleSubmit = e => {
     e.preventDefault();
-    console.log("submit Log Entry", props);
     if(props.location.pathname==="/car/logEntry/edit"){
         authAxios.put(`/api/carLog/${logs[carIndex]._id}`, logs[carIndex])
         .then(res => {
             props.history.push("/car/loggedSum")
         })
     }else if(props.location.pathname==="/car/logEntry/new"){
-        console.log("Posting new:",{...logs[0],car:carId});
         authAxios.post(`/api/carLog`, 
         {...logs[0],car:carId})
         .then(res => {

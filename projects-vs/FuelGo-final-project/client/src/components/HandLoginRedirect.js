@@ -9,9 +9,8 @@ export default (props) => {
         props.push('/carInfo/create')
     }
 
-    console.log("Handling Login Redirect",props)
     return (
-        <div>
+        <div className="auth-form-element">
             {props.err && <p style={red}>{props.err.response.data.errMsg}</p>}
         </div>
     )

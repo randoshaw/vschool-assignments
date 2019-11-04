@@ -24,7 +24,7 @@ const CarInfo = props => {
 
     useEffect(() => {
         getCar()    
-    }, []);
+    },[]);
 
     const goBack = e => {
         e.preventDefault();
@@ -33,8 +33,6 @@ const CarInfo = props => {
     
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(carInfo)
-        console.log(props.location.pathname);
         if(props.location.pathname==="/carInfo/create"){
             authAxios
             .post(`/api/carInfo`, carInfo)
@@ -53,7 +51,6 @@ const CarInfo = props => {
 
         
     };
-    console.log("car info props", props)
     if(hasCar && props.location.pathname==="/carInfo/create"){
         props.history.push("/car/logentry/new")
     }

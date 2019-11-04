@@ -19,15 +19,16 @@ export default (props) => {
             imgUrl: "",
             carId: ""
         })
-        setLogs([{
-            created: "",
-            odometer: "",
-            gallons: "",
-            price: "",
-            tankFull: false,
-            notes: "",
-            car: ""
-        }])
+        setLogs([])
+        // setLogs([{
+        //     created: "",
+        //     odometer: "",
+        //     gallons: "",
+        //     price: "",
+        //     tankFull: false,
+        //     notes: "",
+        //     car: ""
+        // }])
         setCarIndex(0)
 
         setHasCar(false)
@@ -36,10 +37,14 @@ export default (props) => {
     },[])
 
     return (
-        <div>
+        <div style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center"
+        }}>
             You are now logged out
-            <Button label="Log In" />
-            <Link to="/">Log In</Link>
+            {/* <Button label="Log In" /> */}
+            <Link to="/">Click to Log In</Link>
         </div>
     )
 }

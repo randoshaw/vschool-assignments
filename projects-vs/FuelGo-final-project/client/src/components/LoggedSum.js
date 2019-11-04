@@ -7,7 +7,7 @@ import { UserContext } from "../context/UserProvider"
 import "./styles/loggedSum.css"
 
 const MappedLogs = (props) => {
-    const { setCarIndex, deleteAll } = useContext(logContext)
+    const { setCarIndex } = useContext(logContext)
     return props.logs.map((log,index)=>{
         let date = new Date(log.created)
         
