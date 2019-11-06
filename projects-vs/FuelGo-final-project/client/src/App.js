@@ -14,7 +14,7 @@ import LogNew from "./components/LogEntry/LogNew";
 import Logout from "./components/Logout";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
-import "./styles.css";
+// import "./styles.css";
 
 
 const App = params => {

@@ -5,6 +5,10 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const expressJwt = require("express-jwt");
 const PORT = process.env.PORT || 7000;
+const path = require("path")
+
+app.use(express.static(path.join(__dirname, "client", "build")))
+
 
 app.use(express.json()); // req.body
 app.use(morgan("dev"));
@@ -34,6 +38,10 @@ app.use((err, req, res, next) => {
         res.status(err.status);
     }
     return res.send({ errMsg: err.message });
+});
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

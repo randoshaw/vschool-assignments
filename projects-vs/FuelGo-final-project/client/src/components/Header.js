@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles.css"
 // const style = {
 //     "backgroundColor": "#a6a6a6",
 //     "fontSize": "65px",
