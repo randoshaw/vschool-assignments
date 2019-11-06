@@ -7,7 +7,7 @@ export default props => {
         <div className="nav">
             <Link
                 className={
-                    props.location.pathname === "/car/logEntry"
+                    props.location.pathname === "/car/logEntry/new"
                         ? "nav-active"
                         : ""
                 }
@@ -33,7 +33,7 @@ export default props => {
                 }
                 to="/car/loggedSum"
             >
-                Log Summaries
+                Saved Logs
             </Link>
             <Link to="/logout">
                 Sign Out

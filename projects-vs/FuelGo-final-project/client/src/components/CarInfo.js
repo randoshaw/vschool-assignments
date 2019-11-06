@@ -1,26 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import { Button } from "primereact/button/";
+import { InputText } from "primereact/inputtext";
 import { carInfoContext } from "../context/carInfoProvider"
-import { UserContext } from "../context/UserProvider"
-// import Axios from "axios"
-// make a new carinfo post, and save id on signup or if no info exists
-// get carinfo by user
-//      GET '/api/carInfo/user'
-// display carinfo on our form values
-//      then setstate with carinfo
-// on submit, PUT the new updated values to carinfo in db
-//      PUT '/api/carInfo/:id'
-
-// const authAxios = Axios.create();
-// authAxios.interceptors.request.use(config => {
-//     const token = localStorage.getItem("token");
-//     config.headers.Authorization = `Bearer ${token}`;
-//     return config;
-// });
+import authAxios from "../Axios/UserAxios"
 
 const CarInfo = props => {
     const { carInfo, handleChange, hasCar, getCar } = useContext(carInfoContext)
-    const { authAxios } = useContext(UserContext)
 
     useEffect(() => {
         getCar()    
@@ -52,47 +37,64 @@ const CarInfo = props => {
         
     };
     if(hasCar && props.location.pathname==="/carInfo/create"){
-        props.history.push("/car/logentry/new")
+        props.history.push("/car/logEntry/new")
     }
     return (
         <div className="flex-col">
             <h2>{props.title} Your Car Information</h2>
             <form onSubmit={handleSubmit}>
-                <input
+
+            <span className="p-float-label margin large-font">
+                <InputText 
+                    className="large-font"
+                    id="in"
                     type="text"
-                    name="make"
+                    onChange={handleChange}
                     value={carInfo.make || ""}
-                    placeholder="Make"
-                    onChange={handleChange}
-                />
-                <input
+                    name="make"/>
+                <label htmlFor="in">Make</label>
+            </span>
+            <span className="p-float-label margin large-font">
+                <InputText 
+                    className="large-font"
+                    id="in"
                     type="text"
-                    name="model"
+                    onChange={handleChange}
                     value={carInfo.model || ""}
-                    placeholder="Model"
+                    name="model"/>
+                <label htmlFor="in">Model</label>
+            </span>
+            <span className="p-float-label margin large-font">
+                <InputText 
+                    className="large-font"
+                    id="in"
+                    type="number"
                     onChange={handleChange}
-                />
-                <input
-                    type="Number"
-                    name="year"
                     value={carInfo.year || ""}
-                    placeholder="Year"
+                    name="year"/>
+                <label htmlFor="in">Year</label>
+            </span>
+            {/* <span className="p-float-label margin large-font">
+                <InputText 
+                    className="large-font"
+                    id="in"
+                    type="number"
                     onChange={handleChange}
-                />
-                <input
-                    type="Number"
-                    name="odometer"
                     value={carInfo.odometer || ""}
-                    placeholder="Odometer"
-                    onChange={handleChange}
-                />
-                <input
+                    name="odometer"/>
+                <label htmlFor="in">Odometer</label>
+            </span> */}
+            <span className="p-float-label margin large-font">
+                <InputText 
+                    className="large-font"
+                    id="in"
                     type="url"
-                    name="imgUrl"
-                    value={carInfo.imgUrl || ""}
-                    placeholder="Upload ImgUrl"
                     onChange={handleChange}
-                />
+                    value={carInfo.imgUrl || ""}
+                    name="imgUrl"/>
+                <label htmlFor="in">Upload Image Url</label>
+            </span>
+            <div className="carInfoButtons">
                 <Button label="Submit" className="p-button-raised" />
                 { props.cancelButton
                     &&
@@ -102,6 +104,7 @@ const CarInfo = props => {
                         onClick={goBack}
                     />
                 }
+                </div>
             </form>
         </div>
     );

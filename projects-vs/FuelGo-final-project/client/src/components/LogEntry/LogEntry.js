@@ -4,9 +4,9 @@ import { Button } from "primereact/button";
 import { InputTextarea } from "primereact/inputtextarea";
 // import { Calendar } from "primereact/calendar";
 import { InputText } from "primereact/inputtext";
-import { carInfoContext } from "../context/carInfoProvider"
-import { logContext } from "../context/logProvider"
-import { UserContext } from "../context/UserProvider"
+import { carInfoContext } from "../../context/carInfoProvider"
+import { logContext } from "../../context/logProvider"
+import { UserContext } from "../../context/UserProvider"
 import "./styles/logEntry.css"
 
 export default props => {

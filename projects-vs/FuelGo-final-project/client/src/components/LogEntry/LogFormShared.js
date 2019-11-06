@@ -4,7 +4,7 @@ import { Button } from "primereact/button";
 import { InputTextarea } from "primereact/inputtextarea";
 // import { Calendar } from "primereact/calendar";
 import { InputText } from "primereact/inputtext";
-import './styles/logEntry.css'
+import './logEntry.css'
 
 export default props => {
 
@@ -80,7 +80,7 @@ export default props => {
                     <label htmlFor="in">Price</label>
             </span>
             Tank Full?{" "}
-            <InputSwitch 
+            <InputSwitch className="tankSwitch"
                     name="tankFull"
                     onChange={toggleCheckBox}
                     checked={state.tankFull}
@@ -90,7 +90,7 @@ export default props => {
             />
             <div>
             <InputTextarea
-                    className="large-font"
+                    className="notes"
                     name="notes"
                     onChange={handleChange}
                     value={state.notes}

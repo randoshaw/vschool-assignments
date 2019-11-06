@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import LogForm from './LogFormShared'
-import authAxios from "../Axios/UserAxios"
-import { carInfoContext } from "../context/carInfoProvider"
-import { logContext } from "../context/logProvider"
+import authAxios from "../../Axios/UserAxios"
+import { carInfoContext } from "../../context/carInfoProvider"
+import { logContext } from "../../context/logProvider"
 
 export default (props) => {
     const {push} = useHistory()

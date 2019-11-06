@@ -17,10 +17,17 @@
     font-size: 16pt;
 
 }
-
+#root > div > div:nth-child(3) > div > form > div:nth-child(6) > textarea{
+    font-size: 46;
+    font-family: 'Baloo Bhaina', cursive;
+}
 @media screen and (min-width: 678px) {
 
     .log-entry-form > form:nth-child(1n){
         width: 50%;
     }
+  }
+
+ .p-inputswitch.p-component > span{
+      background: rgb(135, 152, 152);
   }
