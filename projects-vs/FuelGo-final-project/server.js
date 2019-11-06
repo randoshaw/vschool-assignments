@@ -6,15 +6,12 @@ const mongoose = require("mongoose");
 const expressJwt = require("express-jwt");
 const PORT = process.env.PORT || 7000;
 
-// app.use((req, res, next)=>{
-//     console.log("First middleware",req.headers)
-//     return next()
-// })
 app.use(express.json()); // req.body
 app.use(morgan("dev"));
 
 mongoose.connect(
-    "mongodb://localhost:27017/fuelgo",
+    // "mongodb://localhost:27017/fuelgo",
+    `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_HOST}/${process.env.MONGO_DB}?retryWrites=true&w=majority`,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
