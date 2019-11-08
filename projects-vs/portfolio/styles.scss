@@ -2,19 +2,20 @@
 
 @import url("https://fonts.googleapis.com/css?family=Darker+Grotesque:400,900&display=swap");
 
-$accent: rgb(203, 204, 204);
+$accent: rgb(238, 238, 238);
 
-$accent-2: rgb(194, 194, 194);
+$accent-2: rgb(255, 255, 255);
 
 
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-html, button {
     font-family: "Darker Grotesque", sans-serif;
 }
+// html, button {
+//     font-family: "Darker Grotesque", sans-serif;
+// }
 
 p {
     font-size: 25px;
@@ -93,7 +94,7 @@ nav {
 
 section {
     border: 2px solid-black;
-    padding: 60px 0;
+    padding: 25px 0;
 }
 
 .about-me {
@@ -107,7 +108,7 @@ section {
 }
 
 h2 {
-    font-size: 35px;
+    font-size: 50px;
     font-weight: normal;
     padding-bottom: 30px;
 }
@@ -133,12 +134,13 @@ h2 {
             margin: 40px;
         }
         h3 {
-            font-size: 30px;
+            font-size: 35px;
             border-radius: 10px 10px 0px 0px;
             box-shadow: 0px 3px 5px black;
             border: 1px solid black;
             padding: 30px;
             text-align: center;
+            font-weight: normal;
         }
     }
 }
@@ -192,6 +194,7 @@ h2 {
             padding: 10px;
             border-radius: 10px;
             background: #f4f4f4;
+            cursor: pointer;
     }
     a {
         text-decoration: none;
@@ -210,13 +213,20 @@ h2 {
         // align-items: center;
     }
 }
+
+hr {
+    width: 75%;
+    margin: 0 auto;
+}
 // Footer Section
 
 footer {
     display: flex;
     justify-content: space-evenly;
+    // border: 1px solid black;
+    padding: 0 200px;
     h5 {
-        font-size: 150px;
+        font-size: 100px;
         
     }
     a {
@@ -224,3 +234,17 @@ footer {
     }
 }
 
+.contact {
+    display: flex;
+    flex-direction: column;
+    // width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 100;
+    // padding-bottom: -200px;
+}
+
+.contact > h4 {
+    font-weight: lighter;
+}

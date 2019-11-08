@@ -16,6 +16,15 @@ export default props => {
         getLogs(carId);
     }, []);
 
+    const sortByDate = (logs) => {
+        return logs.sort((a,b)=>{
+            // console.log(a)
+            return parseInt(a.created.replace(/-/g,"")) - parseInt(b.created.replace(/-/g,""))
+        })
+    }
+    
+    sortByDate(logs)
+
     return (
         <>
             <div className="flex-col">

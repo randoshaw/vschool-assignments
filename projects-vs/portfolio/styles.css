@@ -43,9 +43,6 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-html, button {
   font-family: "Darker Grotesque", sans-serif;
 }
 
@@ -135,7 +132,7 @@ nav a:hover {
 
 section {
   border: 2px solid-black;
-  padding: 60px 0;
+  padding: 25px 0;
 }
 
 .about-me {
@@ -153,17 +150,17 @@ section {
       -ms-flex-align: center;
           align-items: center;
   padding-top: 120px;
-  background: #cbcccc;
+  background: #eeeeee;
 }
 
 h2 {
-  font-size: 35px;
+  font-size: 50px;
   font-weight: normal;
   padding-bottom: 30px;
 }
 
 .projects {
-  background: #c2c2c2;
+  background: white;
 }
 
 .projects h2 {
@@ -193,13 +190,14 @@ h2 {
 }
 
 .projects .proj-box h3 {
-  font-size: 30px;
+  font-size: 35px;
   border-radius: 10px 10px 0px 0px;
   -webkit-box-shadow: 0px 3px 5px black;
           box-shadow: 0px 3px 5px black;
   border: 1px solid black;
   padding: 30px;
   text-align: center;
+  font-weight: normal;
 }
 
 .skills {
@@ -245,7 +243,7 @@ h2 {
 }
 
 .resume {
-  background: #cbcccc;
+  background: #eeeeee;
 }
 
 .resume button {
@@ -256,6 +254,7 @@ h2 {
   padding: 10px;
   border-radius: 10px;
   background: #f4f4f4;
+  cursor: pointer;
 }
 
 .resume a {
@@ -273,6 +272,11 @@ h2 {
   text-align: center;
 }
 
+hr {
+  width: 75%;
+  margin: 0 auto;
+}
+
 footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -280,13 +284,36 @@ footer {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  padding: 0 200px;
 }
 
 footer h5 {
-  font-size: 150px;
+  font-size: 100px;
 }
 
 footer a {
   color: #046b88;
+}
+
+.contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 30px;
+  font-weight: 100;
+}
+
+.contact > h4 {
+  font-weight: lighter;
 }
 /*# sourceMappingURL=styles.css.map */

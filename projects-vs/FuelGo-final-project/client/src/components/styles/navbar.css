@@ -19,7 +19,7 @@
 }
 .nav-active {
     box-shadow: 0px 0px 5px black;
-    background-color: lightgrey;
+    background-color: #d3d3d3;
 }
 
 @media screen and (min-width: 836px) {

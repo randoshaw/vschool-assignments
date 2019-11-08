@@ -41,6 +41,7 @@ export default props => {
                 boxShadow: "2px 2px 3px  black",
                 padding: "0 6px",
                 borderRadius: "4px",
+                zIndex: 1,
                 ...toolTip
             }}
             >Show more notes</div>

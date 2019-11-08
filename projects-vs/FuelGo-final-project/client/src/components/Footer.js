@@ -4,7 +4,7 @@ const container = {
     marginTop: 25,
     // padding: "25px 0",
     height: 175,
-    backgroundColor: "grey",
+    backgroundColor: "#d3d3d3",
     textAlign: "center",
     // display: "flex",
     // justifyContent: "space-around"
@@ -16,8 +16,7 @@ const p = {
 
 const logos = {
     fontSize: 75,
-    marginBottom: -10,
-    color: "#ffbb00",
+    marginBottom: -10
 }
 
 const logoContainer = {

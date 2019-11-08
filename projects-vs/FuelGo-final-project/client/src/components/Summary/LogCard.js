@@ -7,9 +7,9 @@ import ViewNotes from "./viewNotes"
 const Notes = (props) => {
     return (
         <> 
-            Logged Notes: {
+            Logged Notes: &quot;<i>{
                props.log.notes.slice(0, 10)
-            } <ViewNotes notes={props.log.notes}/> 
+            }</i> <ViewNotes notes={props.log.notes}/> 
         </>
     )
 }

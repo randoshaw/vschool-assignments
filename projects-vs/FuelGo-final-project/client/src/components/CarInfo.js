@@ -5,7 +5,7 @@ import { carInfoContext } from "../context/carInfoProvider"
 import authAxios from "../Axios/UserAxios"
 
 const CarInfo = props => {
-    const { carInfo, handleChange, hasCar, getCar } = useContext(carInfoContext)
+    const { carInfo, handleChange, hasCar, getCar, setCarInfo } = useContext(carInfoContext)
 
     useEffect(() => {
         getCar()    
@@ -22,6 +22,8 @@ const CarInfo = props => {
             authAxios
             .post(`/api/carInfo`, carInfo)
             .then(res => {
+                console.log(res.data)
+                setCarInfo(prev=>({...prev,carId:res.data._id}))
                 props.history.push("/car/logEntry/new")}
                 )
             .catch(err => console.log(err));
