@@ -11,10 +11,6 @@ export default props => {
     const hideConfirmation = (e) => {
         setConfirmation({visible: false})
     }
-    const handleYes = (e) => {
-        //props.action(props.carId)
-        hideConfirmation()
-    }
 
     const showToolTip = (e) => {
         setToolTip({display: ""})
@@ -44,7 +40,7 @@ export default props => {
                 zIndex: 1,
                 ...toolTip
             }}
-            >Show more notes</div>
+            >Expand Notes</div>
             <Dialog
                 header="Extended Notes"
                 footer={

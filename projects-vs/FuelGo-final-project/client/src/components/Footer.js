@@ -32,9 +32,9 @@ export default (props) => {
             {/* // <div style={footer}> */}
             <p style={p}><b>Fuel-Go!</b> A full stack project by Randon Shaw</p>
             <div style={logoContainer}>
-            <h5><a href="https://github.com/randoshaw"><i style={logos} class="fa fa-github-square" aria-hidden="true"></i></a></h5>
+            <h5><a href="https://github.com/randoshaw"><i style={logos} className="fa fa-github-square" aria-hidden="true" ></i></a></h5>
 
-            <h5><a href="https://linkedin.com/in/randonshaw"><i style={logos} class="fa fa-linkedin-square" aria-hidden="true"></i></a></h5>
+            <h5><a href="https://linkedin.com/in/randonshaw"><i style={logos} className="fa fa-linkedin-square" aria-hidden="true"></i></a></h5>
             </div>
         </div>
     )

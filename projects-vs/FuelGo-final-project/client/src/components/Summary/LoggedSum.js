@@ -19,7 +19,7 @@ export default props => {
     const sortByDate = (logs) => {
         return logs.sort((a,b)=>{
             // console.log(a)
-            return parseInt(a.created.replace(/-/g,"")) - parseInt(b.created.replace(/-/g,""))
+            return parseInt(a.created.replace(/-/g,"")) - parseInt(b.created.replace(/-/g,"")) //sorted with regex. converts the date into a number (pareseInt), so it can be subtracted and returned to the sort method.
         })
     }
     

@@ -1,14 +1,13 @@
 import React, {useContext} from 'react'
 import { Button } from 'primereact/button';
 import { logContext } from "../../context/logProvider";
-import { Link } from "react-router-dom";
 import ViewNotes from "./viewNotes"
 
 const Notes = (props) => {
     return (
         <> 
             Logged Notes: &quot;<i>{
-               props.log.notes.slice(0, 10)
+                props.log.notes.slice(0, 10)
             }</i> <ViewNotes notes={props.log.notes}/> 
         </>
     )
