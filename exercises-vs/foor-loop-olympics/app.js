@@ -104,7 +104,7 @@ let everyOtherNameArr = [];
 let everyOtherOccupationArr = [];
 
 for(i = 0; i < namesArr.length; i++){
-    if(i % 2 != 1){
+    if(i % 2 === 0){
         everyOtherNameArr.push(namesArr[i]);
     }
 }
@@ -112,7 +112,7 @@ for(i = 0; i < namesArr.length; i++){
 console.log(everyOtherNameArr);
 
 for(i = 0; i < occupationsArr.length; i++){
-    if(i % 2 != 0){
+    if(i % 2 !== 0){
         everyOtherOccupationArr.push(occupationsArr[i])
     }
 }
@@ -134,6 +134,15 @@ for(i = 0; i < 3; i++){
 }
 
 console.log(threeArrofZero)
+
+for (var i = 0; i < 1; i++) {
+    var myArray = []
+    myArray.push(0, 0, 0)
+    // console.log(myArray)
+    for (var j = 0; j < myArray.length; j++) {
+        console.log(myArray)
+    }
+}
 
 // Create an array that mimics a grid like the following using for loops:
 // [[0, 0, 0], 

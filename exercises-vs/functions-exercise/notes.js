@@ -48,5 +48,21 @@ let stringLength = function(str) {
  console.log(stringLength(characters))
  console.log(stringLength("Hello"))
 
+ //nested for loops
 
+for (var i = 0; i < 10; i++) {
+    var myArray = []
+    myArray.push(i)
+    console.log(myArray)
+    for (var j = 0; j < myArray.length; j++){
+        console.log(myArray[j])
+    }
+}
 
+var multiArr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+for ( i = 0; i < multiArr.length-1; i++) {
+    console.log(multiArr[i])
+    for (j = 0; j < multiArr[i].length; j++) {
+        console.log(multiArr[j])
+    }
+}

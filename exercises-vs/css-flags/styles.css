@@ -2,7 +2,8 @@
     width: 800px;
     margin: 0 auto;
     background-color: lightgrey;
-    padding-left: 50px;
+    padding: 0 200px;
+    height: 5700px;
 }
 
 h1{
@@ -92,7 +93,7 @@ h1{
 }
 
 .switz-red {
-    position: relative;
+    /* position: relative; */
     background-color: #FE0000;
     width: 100%;
     height: 100%;
@@ -100,7 +101,7 @@ h1{
 
 .switz-white {
     background-color: white;
-    position: relative;
+    /* position: relative; */
 }
 
 .switz-cross-vertical {
@@ -355,5 +356,70 @@ top: 67%;
     left: 45%;
 }
 
+/* USA */
+
+.usa {
+    background-color: white;
+    height: 305px;
+    width: 580px;
+}
+
+.us-blue {
+    background-color: #3E3D6E;
+    float: left;
+    width: 40.5%;
+    height: 54%;
+    text-align: center;
+}
+
+.us-stripe {
+    background-color: #B02737;
+    width: 100%;
+    height: 7.8%;
+}
+
+.us-stripe2 {
+    margin-bottom: 4%;
+}
+
+.us-star-row {
+    position: relative;
+    top: -17px;
+    width: 100%;
+    height: 11%;
+    margin-top: -1.5px;
+    margin-left: 0px;
+}
+
+.us-star {
+    display: inline-block;
+    margin: -110px -119.5px;
+    border: 100px solid transparent;
+    border-bottom: 70px solid white;
+    -webkit-transform: scale(0.085, 0.085) rotateZ(180deg);
+    transform: scale(0.085, 0.085) rotateZ(180deg);
+}
+
+.us-star::after {
+    content: "";
+    position: absolute;
+    top: -70px;
+    left: -55px;
+    border: 100px solid transparent;
+    border-bottom: 70px solid white;
+    -webkit-transform: rotateZ(70deg);
+    transform: rotateZ(70deg);
+}
+
+.us-star::before {
+    content: "";
+    position: absolute;
+    top: -70px;
+    left: -146px;
+    border: 100px solid transparent;
+    border-bottom: 70px solid white;
+    -webkit-transform: rotateZ(70deg);
+    transform: rotateZ(-70deg);
+}
 
 

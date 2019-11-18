@@ -93,7 +93,8 @@ var users = [
   ]
 
   for(let i = 0; i < users.length; i++){
-      users[i].isAdmin = false
+      users[i].isAdmin = false;
+      users[1].isAdmin = true
   }
 
   console.log(users)
