@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 800px;
+    height: 800px;
+    background: whitesmoke;
+    text-align: center;
+    margin: 0 auto;
+}
+
+h1{
+    background: lightgray;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#square {
+    border: 4pt outset black;
+    width: 325pt;
+    height: 325pt;
+    margin: 0 auto;
+    margin-top: 50pt;
+    background: white;
+}
