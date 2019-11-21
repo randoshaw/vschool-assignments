@@ -1,0 +1,35 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+body {
+    background-color: silver;
+}
+
+h1 {
+    text-align: center;
+}
+
+.section {
+    text-align: center;
+    padding: 25px;
+    margin: 25pt auto;
+    width: 50%;
+    border: 3px solid whitesmoke;
+    border-radius: 5pt;
+    color: slateblue;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 5px 6px 3px;
+}
+
+.add {
+    background-color: #ffbb00;
+}
+
+.subtract {
+    background-color: #ff0088
+}
+
+.multiply {
+    background-color: #00ffee
+}
