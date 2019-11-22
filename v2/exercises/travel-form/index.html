@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Travel With Us</h1>
+        <h3>Please Fill Out the Information Below</h3>
+    </div>
+
+    <form name='info'>
+        <div class="section">
+            <input name='first' type='text' placeholder='First Name'>
+            <input name='last' type='text' placeholder='Last Name'>
+            <input name='age' type='text' placeholder='Age'>
+        </div>
+
+        <div class="section">
+            <h4>Gender</h4>
+            <div class="gender">
+                <label for='Male'>Male</label>
+                <input name='gender' value='Male' type='radio'>
+            </div>
+            
+            <div class="gender">
+                <label for='Female'>Female</label>
+                <input name='gender' value='Female' type='radio'>
+            </div>
+
+            <div class="gender">
+                <label for='Other'>Other</label>
+                <input name='gender' value='Other' type='radio'>
+            </div>
+        </div>
+
+        <div class="section">
+            <h4>Location</h4>
+            <select name='location'>
+                <option value="Scotland"></option>
+                <option value="Sweeden"></option>
+                <option value="Germany"></option>
+            </select>
+        </div>
+        <div class="section">
+            <h4>Dietary Restrictions</h4>
+
+            <div class="dietRow">
+                <input name='dietary' value='vegetarian' type='checkbox'>
+                <label for='dietary'>Vegetarian</label>
+
+                <input name='dietary' value='vegan' type='checkbox'>
+                <label for='dietary'>Vegan</label>
+            </div>
+
+            <div class="dietRow">
+                <input name='dietary' value='gluten' type='checkbox'>
+                <label for='dietary'>Gluten Free</label>
+
+                <input name='dietary' value='Paleo' type='checkbox'>
+                <label for='dietary'>Paleo</label>
+            </div>
+
+            <div class="dietRow">
+                <input name='dietary' value='none' type='checkbox'>
+                <label for='dietary'>No Restrictions</label>
+            </div>
+        </div>
+
+        <div class="section">
+            <button>Submit</button>
+        </div>
+    </form>
+
+
+</body>
+<script src="main.js"></script>
+</html>
