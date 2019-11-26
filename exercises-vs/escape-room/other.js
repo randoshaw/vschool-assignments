@@ -1,4 +1,4 @@
-// const ask = require('readline-sync')
+// let ask = require('readline-sync')
 // ​
 // let gameOver = false
 // let hasKey = false
@@ -25,15 +25,12 @@
 //     }  
 // ​
 // }
-const ask = require('readline-sync')
-​
+let ask = require('readline-sync');
 let gameOver = false
 let hasKey = false
 const userOptions = ["Put hand in hole", "Open the Door", "Find the Key"]
-​
 while(!gameOver){
     const userAnswer = ask.keyInSelect(userOptions, "What would you like to do?")
-​
     if(userAnswer === 0){
         console.log('you ded')
         gameOver = true
@@ -50,5 +47,4 @@ while(!gameOver){
     } else if(userAnswer === -1){
         console.log("Can't cancel")
     }  
-​
 }
