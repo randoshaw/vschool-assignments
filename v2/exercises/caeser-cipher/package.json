@@ -1,0 +1,15 @@
+{
+  "name": "caeser-cipher",
+  "version": "1.0.0",
+  "description": "For this exercise, you will be implementing a Caeser cipher using Javascript. Your program will receive two inputs:",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
