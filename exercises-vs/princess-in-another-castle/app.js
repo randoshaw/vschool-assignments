@@ -48,12 +48,12 @@ class Character {
         Status: ${this.status}
         Total Coins: ${this.totalCoins}
         Star: ${this.hasStar}`)
-        return ""
+        // return ""
     }
 }
 
 const randomMath = (min, max) => {
-    return Math.floor(Math.random() * (max-min) + min)
+    return Math.floor(Math.random() * (max-min + 1) + min)
 }
 
 const events = () => {
@@ -84,7 +84,7 @@ if (nameMath === 0) {
 
 console.log(player.print())
 
-let intervalID = setInterval(events, 500)
+let intervalID = setInterval(events, 1000)
 
 let stop = () => {
     clearInterval(intervalID)

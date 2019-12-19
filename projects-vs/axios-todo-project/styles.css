@@ -2,3 +2,44 @@
     text-decoration: line-through;
     color: red;
 }
+
+body {
+    box-sizing: border-box;
+    margin: 0 auto;
+    margin-top: 50px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 800px;
+    text-align: center;
+}
+
+form {
+    border: 5px solid blue;
+    text-align: center;
+    margin: 0 50px;
+}
+
+#largeDiv {
+    border: 2px solid gray;
+    margin: 20px 30px 0px 30px;
+}
+
+form > label {
+    display: block;
+    color: red;
+}
+
+img {
+    width: 25vw;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+}
+
+div > container {
+    border: 2px solid blue;
+}
