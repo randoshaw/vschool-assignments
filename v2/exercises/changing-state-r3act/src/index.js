@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import App from './App';
-// import NameForm from './NameForm'
-import TodoApp from './TodoApp'
+import NameForm from './NameForm'
+// import TodoApp from './TodoApp'
 
 
-ReactDOM.render(<TodoApp />, document.getElementById('root'));
+ReactDOM.render(<NameForm />, document.getElementById('root'));
