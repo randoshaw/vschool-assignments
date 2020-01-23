@@ -1,10 +1,10 @@
-import React from "react";
-import Pet from "./Pet";
+import React from 'react'
+import Pet from './Pet'
 
 const Friend = props => {
 	const petFriends = props.pets.map(petList => {
-		return <Pet name={petList.name} breed={petList.breed} />;
-	});
+		return <Pet name={petList.name} breed={petList.breed} />
+	})
 
 	return (
 		<main>
@@ -13,7 +13,7 @@ const Friend = props => {
 			<h4>Age: {props.age}</h4>
 			{petFriends}
 		</main>
-	);
-};
+	)
+}
 
-export default Friend;
+export default Friend
